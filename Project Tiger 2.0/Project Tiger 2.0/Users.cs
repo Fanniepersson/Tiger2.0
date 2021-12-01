@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Project_Tiger_2._0
 {
-    class Users
+    public class Users : BankUsers
     {
+       public List<BankAccounts> listOfBankAccounts = new List<BankAccounts>();
     }
 }

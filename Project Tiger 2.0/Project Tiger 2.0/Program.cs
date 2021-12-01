@@ -6,7 +6,8 @@ namespace Project_Tiger_2._0
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            LoggingIntoBankSystem startLogin = new LoggingIntoBankSystem();
+            startLogin.LoginMenu();
         }
     }
 }

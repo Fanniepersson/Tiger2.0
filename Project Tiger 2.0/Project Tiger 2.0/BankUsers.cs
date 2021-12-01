@@ -6,6 +6,8 @@ namespace Project_Tiger_2._0
 {
     public abstract class BankUsers
     {
-        public string Name {get; set;}
+        public string UserName { get; set; }
+        public int PinCode { get; set; }
+        public bool AdminPrivileges { get; set; }
     }
 }
