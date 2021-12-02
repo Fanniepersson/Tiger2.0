@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Mattias\\.nuget\\packages\\": {}
+    "C:\\Users\\area5\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mattias\\source\\repos\\Fanniepersson\\Tiger2.0\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
+      "projectUniqueName": "C:\\Users\\area5\\Source\\Repos\\Tiger2.0\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
       "projectName": "Project Tiger 2.0",
-      "projectPath": "C:\\Users\\Mattias\\source\\repos\\Fanniepersson\\Tiger2.0\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
-      "packagesPath": "C:\\Users\\Mattias\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mattias\\source\\repos\\Fanniepersson\\Tiger2.0\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\obj\\",
+      "projectPath": "C:\\Users\\area5\\Source\\Repos\\Tiger2.0\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
+      "packagesPath": "C:\\Users\\area5\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\area5\\Source\\Repos\\Tiger2.0\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Mattias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\area5\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
