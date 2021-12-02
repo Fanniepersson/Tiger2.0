@@ -6,27 +6,41 @@ namespace Project_Tiger_2._0
 {
     public class MainMenuAdmin 
     {
-        
-        public void MainMenuC()
-        {
-            switch ()
-            {
-                case 1:
-                    AddBankAccount();
-                    break;
 
-                case 2:
-                    RemoveAccount();
+        public void MainMenuA()
+        {
+            bool LogOut = false;
+            while (LogOut == false)
+            {
+
+
+                string AdminPick = Console.ReadLine();
+                Console.WriteLine("Välj ett alternativ utav följande : ");
+                Console.WriteLine("Skapa en ny administrator\n Skapa ett nytt konto åt kunden.");
+
+                switch (AdminPick)
+                {
+                    case "1":
+                        ;
                         break;
-                case 3:
-                    Withdraw();
+
+                    case "2":
+
                         break;
-                case 4:
-                    Deposit();
+                    case "3":
+
                         break;
+                    case "4":
+                        
+                        break;
+                    case "5":
+                        LogOut = true;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
-
             
     }
 
