@@ -106,7 +106,7 @@ namespace Project_Tiger_2._0
                 Console.WriteLine("Hej4");
                 Console.WriteLine("Hej5");
                 Console.WriteLine("Hej6");
-
+                Console.WriteLine("Hej7");
                 // Ge användaren möjligheten att stänga av systemet i slutet av denna loopen.
                 login = false;
             }
