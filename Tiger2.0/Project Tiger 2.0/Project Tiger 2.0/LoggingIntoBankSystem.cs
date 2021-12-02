@@ -98,10 +98,10 @@ namespace Project_Tiger_2._0
                 }
 
 
-                Console.WriteLine("test");
 
-                      
 
+                Console.WriteLine("Hej");
+                Console.WriteLine("Hej2");
 
                    
 
