@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Project_Tiger_2._0
 {
-    public class MainMenuAdmin  
+    public class MainMenuAdmin
     {
 
         public void MainMenuA(List<Users> listOfUsers, int loggedInUserIndex)
@@ -23,47 +23,49 @@ namespace Project_Tiger_2._0
                     case "1":
                         bool userNameAlreadyExists = true;
                         while (userNameAlreadyExists == true)
-                        {Console.WriteLine("Vad ska den nya adminastratorn ha för användarnamn?");
-                        string nameForNewAdmin = Console.ReadLine();
-                        foreach (Users users in listOfUsers)
                         {
-                            if(users.UserName == nameForNewAdmin)
+                            Console.WriteLine("Vad ska den nya adminastratorn ha för användarnamn?");
+                            string nameForNewAdmin = Console.ReadLine();
+                            foreach (Users users in listOfUsers) // Funkar inte.
                             {
-                               Console.WriteLine("Det användarnamnet finns redan i systemet. välj ett annat!");
-                            }
-                            else
-                            {
-                                bool pinCodeMustConsistOfSixNumbers = false;
-                                while (pinCodeMustConsistOfSixNumbers == false)
+                                if (users.UserName == nameForNewAdmin)
                                 {
-                                    Console.WriteLine("Välj nu en pinkod för den nya adminastratorn.");
-                                    int pinCodeForNewAdmin = Convert.ToInt32(Console.ReadLine());
-                                   string stringPinCodeForNewAdmin = Convert.ToString(pinCodeForNewAdmin);
-                                    string notLongerThanSix = "123456";
-                                    if (stringPinCodeForNewAdmin.Length == notLongerThanSix.Length)
-                                    {
-                                        listOfUsers.Add(new Users // Denna algoritm används för att skapa en ny administratör.
-                                        {
-                                           UserName = nameForNewAdmin,
-                                           PinCode = pinCodeForNewAdmin,
-                                           AdminPrivileges = true
-                                        });  
-                                       pinCodeMustConsistOfSixNumbers = true;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Din pinkod måste innehålla 6 stycken siffror!");
-                                    }
+                                    Console.WriteLine("Det användarnamnet finns redan i systemet. välj ett annat!");
                                 }
-                                
-                                
+                                else
+                                {
+                                    bool pinCodeMustConsistOfSixNumbers = false;
+                                    while (pinCodeMustConsistOfSixNumbers == false)
+                                    {
+                                        Console.WriteLine("Välj nu en pinkod för den nya adminastratorn.");
+                                        int pinCodeForNewAdmin = Convert.ToInt32(Console.ReadLine());
+                                        string stringPinCodeForNewAdmin = Convert.ToString(pinCodeForNewAdmin);
+
+                                        if (stringPinCodeForNewAdmin.Length == "123456".Length)
+                                        {
+                                            listOfUsers.Add(new Users // Denna algoritm används för att skapa en ny administratör.
+                                            {
+                                                UserName = nameForNewAdmin,
+                                                PinCode = pinCodeForNewAdmin,
+                                                AdminPrivileges = true
+                                            });
+                                            pinCodeMustConsistOfSixNumbers = true;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Din pinkod måste innehålla 6 stycken siffror!");
+                                        }
+                                    }
 
 
-                                userNameAlreadyExists = false;
+
+
+                                    userNameAlreadyExists = false;
+                                }
                             }
-                        }}
-                        
-                
+                        }
+
+
                         break;
 
                     case "2":
@@ -73,7 +75,7 @@ namespace Project_Tiger_2._0
 
                         break;
                     case "4":
-                        
+
                         break;
                     case "5":
                         LogOut = true;
@@ -84,14 +86,14 @@ namespace Project_Tiger_2._0
             }
         }
 
-        
 
-        
+
+
 
     }
 
 }
-   
+
 
 
 

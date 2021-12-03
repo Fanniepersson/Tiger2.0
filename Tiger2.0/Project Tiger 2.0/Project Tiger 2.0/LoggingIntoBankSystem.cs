@@ -31,7 +31,7 @@ namespace Project_Tiger_2._0
                 while (answerUserNameWrong == true)
                 {
                     Console.WriteLine("Välkommen till banken! Mata in ditt användarnamn.");
-                     answerUserName = Console.ReadLine();
+                    answerUserName = Console.ReadLine();
 
                     foreach (Users user in listOfUsers)
                     {
@@ -74,15 +74,15 @@ namespace Project_Tiger_2._0
                     {
                         Console.WriteLine($"Du har {3 - loginTries} försök till på dig att mata in rätt pinkod.");
                     }
-                
-                
-                
-                
-                
-                
-                
-                
-                
+
+
+
+
+
+
+
+
+
                 }
 
                 if (successfullyLoggedIn == true)
