@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Project_Tiger_2._0
 {
-    public class MainMenuAdmin 
+    public class MainMenuAdmin
     {
 
-        public void MainMenuA()
+        public void MainMenuA(List<Users> listOfUsers, int loggedInUserIndex)
         {
             bool LogOut = false;
             while (LogOut == false)
@@ -21,7 +21,7 @@ namespace Project_Tiger_2._0
                 switch (AdminPick)
                 {
                     case "1":
-                        ;
+                        
                         break;
 
                     case "2":
@@ -31,7 +31,7 @@ namespace Project_Tiger_2._0
 
                         break;
                     case "4":
-                        
+
                         break;
                     case "5":
                         LogOut = true;
@@ -41,11 +41,11 @@ namespace Project_Tiger_2._0
                 }
             }
         }
-            
+
     }
 
 }
-   
+
 
 
 

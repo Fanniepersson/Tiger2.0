@@ -90,6 +90,8 @@ namespace Project_Tiger_2._0
                     if (listOfUsers[loggedInUserIndex].AdminPrivileges == true)
                     {
                         Console.WriteLine("Du är en admin!"); // Admin metoder anrop här.
+                        MainMenuAdmin adminMenu = new MainMenuAdmin();
+                        adminMenu.MainMenuA(listOfUsers, loggedInUserIndex);
                     }
                     else
                     {
@@ -107,6 +109,7 @@ namespace Project_Tiger_2._0
                 Console.WriteLine("Hej5");
                 Console.WriteLine("Hej6");
                 Console.WriteLine("Hej7");
+                Console.WriteLine("Hej8");
                 // Ge användaren möjligheten att stänga av systemet i slutet av denna loopen.
                 login = false;
             }
