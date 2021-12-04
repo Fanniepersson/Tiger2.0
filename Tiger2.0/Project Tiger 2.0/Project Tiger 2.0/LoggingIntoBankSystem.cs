@@ -21,6 +21,10 @@ namespace Project_Tiger_2._0
                 PinCode = 2,
                 AdminPrivileges = false
             });
+            listOfUsers[1].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1000));
+            listOfUsers[1].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 13456));
+            listOfUsers[1].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1359385));
+
 
             bool login = true;
             while (login)
@@ -96,22 +100,16 @@ namespace Project_Tiger_2._0
                     else
                     {
                         Console.WriteLine("Du är en vanlig kund!"); // Kund metoder här.
+                        MainMenuCustomer customerMenu = new MainMenuCustomer();
+                        customerMenu.MainMenuC(listOfUsers, loggedInUserIndex);
                     }
                 }
 
 
 
 
-                Console.WriteLine("Hej");
-                Console.WriteLine("Hej2");
-                Console.WriteLine("Hej3");
-                Console.WriteLine("Hej4");
-                Console.WriteLine("Hej5");
-                Console.WriteLine("Hej6");
-                Console.WriteLine("Hej7");
-                Console.WriteLine("Hej8");
                 // Ge användaren möjligheten att stänga av systemet i slutet av denna loopen.
-                login = false;
+                //login = false;
             }
         }
     }

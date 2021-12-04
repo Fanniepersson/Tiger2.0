@@ -4,19 +4,9 @@ namespace Project_Tiger_2._0
 {
     public class MainMenuCustomer
     {
-
-
-
         public void MainMenuC(List<Users> listOfUsers, int loggedInUserIndex)
         {
             bool logOut = false;
-
-
-            listOfUsers[loggedInUserIndex].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1000));
-            listOfUsers[loggedInUserIndex].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 13456));
-            listOfUsers[loggedInUserIndex].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1359385));
-
-
             while (logOut == false)
             {
                 Console.WriteLine("Välj ett av valen nedan i menyn:");
@@ -66,7 +56,7 @@ namespace Project_Tiger_2._0
                         break;
 
                     case "5":
-
+                        logOut = true;
                         break;
 
 
