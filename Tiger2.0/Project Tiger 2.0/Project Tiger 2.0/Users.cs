@@ -74,5 +74,119 @@ namespace Project_Tiger_2._0
             Console.WriteLine("Tryck på enter för att återgå till menyn.");
             Console.ReadKey();
         }
+
+        public void TransferMoneyToAnotherAccount()
+        {
+            bool loop = true;
+            int accountChoice = 0;
+            while (loop)
+            {
+                for (int i = 0; i < listOfBankAccounts.Count; i++)
+                {
+                    Console.Write(i + " --- ");
+                    Console.Write(listOfBankAccounts[i].AccountName);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountBalance);
+                    Console.WriteLine();
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine("Välj vilket konto du vill föra över pengar ifrån:");
+                try
+                {
+                    accountChoice = Convert.ToInt32(Console.ReadLine());
+                }
+
+                catch
+                {
+                    Console.WriteLine("Ogiltligt val");
+                }
+
+                if (accountChoice < listOfBankAccounts.Count)
+                {
+                    loop = false;
+                }
+                else if (accountChoice >= listOfBankAccounts.Count)
+                {
+                    Console.WriteLine("Kontot finns inte i systemet");
+                }
+               
+            }
+
+            bool loop2 = true;
+            int transferToAcount = 0;
+            while (loop2)
+            {
+                for (int i = 0; i < listOfBankAccounts.Count; i++)
+                {
+                    Console.Write(i + " --- ");
+                    Console.Write(listOfBankAccounts[i].AccountName);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountBalance);
+                    Console.WriteLine();
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine("Välj vilket konto du vill föra över pengar till:");
+                try
+                {
+                    transferToAcount = Convert.ToInt32(Console.ReadLine());
+                }
+
+                catch
+                {
+                    Console.WriteLine("Ogiltligt val");
+                }
+                if (transferToAcount == accountChoice)
+                {
+                    Console.WriteLine("Du kan inte föra över pengar till samma konto");
+                }
+
+                else if (transferToAcount < listOfBankAccounts.Count)
+                {
+                    loop2 = false;
+                }
+                else if (transferToAcount >= listOfBankAccounts.Count)
+                {
+                    Console.WriteLine("Kontot finns inte i systemet");
+                }
+               
+
+            }
+
+            decimal amount = 0;
+            bool loop3 = true;
+            while (loop3)
+            {
+                Console.WriteLine("Vilken summa vill du föra över? : ");
+                
+
+                try
+                {
+                    amount = Convert.ToDecimal(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Ogiltligt val");
+                }
+                if (amount <= 0)
+                {
+                    Console.WriteLine("Summan måste vara högre än 0");
+                }
+                else if (amount > listOfBankAccounts[accountChoice].AccountBalance)
+                {
+                    Console.WriteLine("Du har inte tillräckligt med pengar på konto för att överföra denna summan");
+                }
+                else if (amount > 0)
+                {
+                    loop3 = false;
+                }
+            }
+
+            listOfBankAccounts[accountChoice].AccountBalance = listOfBankAccounts[accountChoice].AccountBalance - amount;
+            listOfBankAccounts[transferToAcount].AccountBalance = listOfBankAccounts[transferToAcount].AccountBalance + amount;
+
+
+        }
     }
 }
