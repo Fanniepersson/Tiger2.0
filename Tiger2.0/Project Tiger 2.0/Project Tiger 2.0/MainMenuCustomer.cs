@@ -27,13 +27,7 @@ namespace Project_Tiger_2._0
 
 
                     case "2":
-
-                        
-
-
-
-
-
+                        listOfUsers[loggedInUserIndex].TransferMoneyToAnotherAccount();
                         break;
 
                     case "3":
