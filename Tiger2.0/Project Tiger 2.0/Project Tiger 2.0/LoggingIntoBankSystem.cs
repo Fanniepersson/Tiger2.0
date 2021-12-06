@@ -15,6 +15,7 @@ namespace Project_Tiger_2._0
                 PinCode = 1,
                 AdminPrivileges = true
             });
+
             listOfUsers.Add(new Users
             {
                 UserName = "test2",
@@ -25,10 +26,19 @@ namespace Project_Tiger_2._0
             listOfUsers[1].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 13456));
             listOfUsers[1].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1359385));
 
+            listOfUsers.Add(new Users
+            {
+                UserName = "test3",
+                PinCode = 3,
+                AdminPrivileges = false
+            });
+            listOfUsers[2].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 181518));
+            listOfUsers[2].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 472494));
 
             bool login = true;
             while (login)
             {
+                Console.Clear();
                 string answerUserName = " ";
                 bool answerUserNameWrong = true;
                 int loggedInUserIndex = 0;
@@ -42,9 +52,13 @@ namespace Project_Tiger_2._0
                         if (answerUserName == user.UserName)
                         {
                             loggedInUserIndex = listOfUsers.IndexOf(user);
-                            Console.WriteLine(loggedInUserIndex);
+                            //Console.WriteLine(loggedInUserIndex);
                             answerUserNameWrong = false;
                         }
+                    }
+                    if (answerUserNameWrong == true)
+                    {
+                        Console.WriteLine("Det användarnamnet finns inte i systemet! Försök igen.");
                     }
                 }
 
@@ -93,13 +107,13 @@ namespace Project_Tiger_2._0
                 {
                     if (listOfUsers[loggedInUserIndex].AdminPrivileges == true)
                     {
-                        Console.WriteLine("Du är en admin!"); // Admin metoder anrop här.
+                        /*Console.WriteLine("Du är en admin!");*/ // Admin meny anrop här.
                         MainMenuAdmin adminMenu = new MainMenuAdmin();
                         adminMenu.MainMenuA(listOfUsers, loggedInUserIndex);
                     }
                     else
                     {
-                        Console.WriteLine("Du är en vanlig kund!"); // Kund metoder här.
+                        /*Console.WriteLine("Du är en vanlig kund!");*/ // Kund meny anrop här.
                         MainMenuCustomer customerMenu = new MainMenuCustomer();
                         customerMenu.MainMenuC(listOfUsers, loggedInUserIndex);
                     }

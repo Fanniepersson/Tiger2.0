@@ -11,9 +11,11 @@ namespace Project_Tiger_2._0
             bool LogOut = false;
             while (LogOut == false)
             {
-                Console.WriteLine("Välj ett alternativ utav följande : ");
+                Console.Clear();
+                Console.WriteLine("Välj ett alternativ utav följande:");
                 Console.WriteLine("1 --- Skapa en ny admin.");
                 Console.WriteLine("5 --- Logga ut.");
+
                 string AdminPick = Console.ReadLine();
                 switch (AdminPick)
                 {
@@ -64,6 +66,9 @@ namespace Project_Tiger_2._0
                                 Console.WriteLine("Din pinkod måste innehålla 6 stycken siffror!");
                             }
                         }
+
+                        Console.WriteLine("Tryck på enter för att återgå till menyn.");
+                        Console.ReadKey();
 
                         break;
 
