@@ -22,28 +22,13 @@ namespace Project_Tiger_2._0
                 {
 
                     case "1":
-
-                        Console.WriteLine("Dina konton och saldo");
-                        Console.WriteLine();
-
-                        for (int i = 0; i < listOfUsers[loggedInUserIndex].listOfBankAccounts.Count; i++)
-                        {
-                            Console.Write(listOfUsers[loggedInUserIndex].listOfBankAccounts[i].AccountName);
-                            Console.Write(" --- ");
-                            Console.Write(listOfUsers[loggedInUserIndex].listOfBankAccounts[i].AccountBalance);
-                            Console.WriteLine();
-                            Console.WriteLine();
-                        }
-
-                        Console.WriteLine("Tryck på enter för att återgå till menyn.");
-                        Console.ReadKey();
-
+                        listOfUsers[loggedInUserIndex].PrintBankAccounts();
                         break;
 
 
                     case "2":
 
-                        Console.WriteLine("Föra över pengar mellan dina konton");
+                        
 
 
 

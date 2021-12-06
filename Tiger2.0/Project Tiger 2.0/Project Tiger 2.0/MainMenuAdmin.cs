@@ -19,57 +19,8 @@ namespace Project_Tiger_2._0
                 string AdminPick = Console.ReadLine();
                 switch (AdminPick)
                 {
-                    case "1":
-
-                        string nameForNewAdmin = " ";
-                        bool userNameAlreadyExists = true;
-                        while (userNameAlreadyExists == true)
-                        {
-                            Console.WriteLine("Vad ska den nya administratören ha för användarnamn?");
-                            nameForNewAdmin = Console.ReadLine();
-
-                            bool nameAlreadyTaken = false;
-
-                            foreach (Users user in listOfUsers)
-                            {
-                                if (user.UserName == nameForNewAdmin)
-                                {
-                                    Console.WriteLine("Det namnet finns redan i systemet, välj ett annat!");
-                                    nameAlreadyTaken = true;
-                                }
-                            }
-                            if (nameAlreadyTaken == false)
-                            {
-                                userNameAlreadyExists = false;
-                            }
-                        }
-
-                        bool pinCodeConsistsOfSixNumbers = false;
-                        while (pinCodeConsistsOfSixNumbers == false)
-                        {
-                            Console.WriteLine("Välj nu en pinkod för den nya administratören.");
-                            int pinCodeForNewAdmin = Convert.ToInt32(Console.ReadLine());
-                            string stringPinCodeForNewAdmin = Convert.ToString(pinCodeForNewAdmin);
-
-                            if (stringPinCodeForNewAdmin.Length == "123456".Length)
-                            {
-                                listOfUsers.Add(new Users // Denna algoritm används för att skapa en ny administratör.
-                                {
-                                    UserName = nameForNewAdmin,
-                                    PinCode = pinCodeForNewAdmin,
-                                    AdminPrivileges = true
-                                });
-                                pinCodeConsistsOfSixNumbers = true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Din pinkod måste innehålla 6 stycken siffror!");
-                            }
-                        }
-
-                        Console.WriteLine("Tryck på enter för att återgå till menyn.");
-                        Console.ReadKey();
-
+                    case "1":                        
+                        listOfUsers[loggedInUserIndex].CreateNewAdmin(listOfUsers);                        
                         break;
 
                     case "2":
