@@ -188,5 +188,13 @@ namespace Project_Tiger_2._0
 
 
         }
+
+        public void CreateNewAccount()
+        {
+            Console.WriteLine("Vad ska ditt nya konto har för namn? ");
+            string newAccountName = Console.ReadLine();
+            listOfBankAccounts.Add(new BankAccounts(newAccountName, 0));
+
+        }
     }
 }

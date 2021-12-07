@@ -35,7 +35,7 @@ namespace Project_Tiger_2._0
                         break;
 
                     case "4":
-
+                        listOfUsers[loggedInUserIndex].CreateNewAccount();
                         break;
 
                     case "5":
