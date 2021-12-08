@@ -47,7 +47,8 @@ namespace Project_Tiger_2._0
 
 
                     default:
-
+                        Console.WriteLine("Felaktig inmatning. Tryck på enter för att återgå till menyn.");
+                        Console.ReadKey();
                         break;
                 }
             }

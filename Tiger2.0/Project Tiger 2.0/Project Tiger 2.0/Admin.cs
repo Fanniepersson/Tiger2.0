@@ -7,7 +7,7 @@ namespace Project_Tiger_2._0
     public class Admin : Users
     {
         public bool AdminPrivileges { get; set; } // Behövs inte. Dålig.
-        public void MainMenuA(List<Admin> listOfAdmins, int loggedInUserIndex)
+        public void MainMenuA(List<Admin> listOfAdmins, int loggedInUserIndex, List<Customer> listOfCustomers)
         {
             bool LogOut = false;
             while (LogOut == false)
@@ -21,7 +21,7 @@ namespace Project_Tiger_2._0
                 switch (AdminPick)
                 {
                     case "1":
-                        listOfAdmins[loggedInUserIndex].CreateNewAdmin(listOfAdmins);
+                        listOfAdmins[loggedInUserIndex].CreateNewAdmin(listOfAdmins, listOfCustomers);
                         break;
 
                     case "2":
@@ -46,7 +46,7 @@ namespace Project_Tiger_2._0
                 }
             }
         }
-        public void CreateNewAdmin(List<Admin> listOfAdmins) // Denna metoden rör admins.
+        public void CreateNewAdmin(List<Admin> listOfAdmins, List<Customer> listOfCustomers) // Denna metoden rör admins.
         {
             Console.Clear();
             string nameForNewAdmin = " ";
@@ -58,9 +58,17 @@ namespace Project_Tiger_2._0
 
                 bool nameAlreadyTaken = false;
 
-                foreach (Users user in listOfAdmins)
+                foreach (Admin admins in listOfAdmins)
                 {
-                    if (user.UserName == nameForNewAdmin)
+                    if (admins.UserName == nameForNewAdmin)
+                    {
+                        Console.WriteLine("Det namnet finns redan i systemet, välj ett annat!");
+                        nameAlreadyTaken = true;
+                    }
+                }
+                foreach (Customer customers in listOfCustomers)
+                {
+                    if (customers.UserName == nameForNewAdmin)
                     {
                         Console.WriteLine("Det namnet finns redan i systemet, välj ett annat!");
                         nameAlreadyTaken = true;

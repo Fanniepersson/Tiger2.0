@@ -119,7 +119,7 @@ namespace Project_Tiger_2._0
                     {
                         /*Console.WriteLine("Du är en admin!");*/ // Admin meny anrop här.
                         Admin adminMenu = new Admin();
-                        adminMenu.MainMenuA(listOfAdmins, loggedInUserIndexAdmin);
+                        adminMenu.MainMenuA(listOfAdmins, loggedInUserIndexAdmin, listOfCustomers);
                     }
                     else if (listOfCustomers[loggedInUserIndexCustomer].UserName == answerUserName)
                     {
