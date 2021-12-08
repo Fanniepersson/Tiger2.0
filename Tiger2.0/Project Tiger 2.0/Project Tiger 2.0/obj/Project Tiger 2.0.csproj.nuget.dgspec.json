@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\area5\\Source\\Repos\\Tiger2.0 test2\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj": {}
+    "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0 (08-12)(2)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\area5\\Source\\Repos\\Tiger2.0 test2\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj": {
+    "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0 (08-12)(2)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\area5\\Source\\Repos\\Tiger2.0 test2\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
+        "projectUniqueName": "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0 (08-12)(2)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
         "projectName": "Project Tiger 2.0",
-        "projectPath": "C:\\Users\\area5\\Source\\Repos\\Tiger2.0 test2\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
-        "packagesPath": "C:\\Users\\area5\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\area5\\Source\\Repos\\Tiger2.0 test2\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\obj\\",
+        "projectPath": "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0 (08-12)(2)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
+        "packagesPath": "C:\\Users\\Filip\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0 (08-12)(2)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\area5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Filip\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -18,7 +18,8 @@ namespace Project_Tiger_2._0
                 Console.WriteLine("2 --- Överföring av pengar mellan dina konton.");
                 Console.WriteLine("3 --- Överför dina pengar till en annan användare. (inte implementerad ännu)");
                 Console.WriteLine("4 --- Öppna upp ett nytt konto.");
-                Console.WriteLine("5 --- Logga ut.");
+                Console.WriteLine("5 --- Avsluta ett existerande konto.");
+                Console.WriteLine("6 --- Logga ut.");
 
                 string choice = Console.ReadLine();
                 switch (choice)
@@ -42,9 +43,12 @@ namespace Project_Tiger_2._0
                         break;
 
                     case "5":
-                        logOut = true;
+                        listOfCustomers[loggedInUserIndex].RemoveExistingAccount();
                         break;
 
+                    case "6":
+                        logOut = true;
+                        break;
 
                     default:
                         Console.WriteLine("Felaktig inmatning. Tryck på enter för att återgå till menyn.");
@@ -195,6 +199,61 @@ namespace Project_Tiger_2._0
 
             Console.WriteLine("Tryck på enter för att återgå till menyn.");
             Console.ReadKey();
+        }
+
+
+        public void RemoveExistingAccount()
+        {
+            
+            Console.Clear();
+            int choosenAccount = 0;
+            bool loop = true;            
+            while (loop == true)
+            {
+                //Console.WriteLine("Välj det kontot du vill ta bort");
+                //int choosenAccount = Convert.ToInt32(Console.ReadLine());
+
+                for (int i = 0; i < listOfBankAccounts.Count; i++)
+                {
+                    Console.Write(i + " --- ");
+                    Console.Write(listOfBankAccounts[i].AccountName);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountBalance);
+                    Console.WriteLine();
+                    Console.WriteLine();
+                }
+                Console.WriteLine("Välj det kontot du vill ta bort");
+                 choosenAccount = Convert.ToInt32(Console.ReadLine());
+
+
+
+
+                if (choosenAccount >= listOfBankAccounts.Count)
+                {
+                    Console.WriteLine("Det kontot finns inte i systemet");
+                    
+
+                }
+                else if (choosenAccount < listOfBankAccounts.Count && listOfBankAccounts[choosenAccount].AccountBalance <= 0) 
+                {
+                    loop = false;
+                    Console.WriteLine("Du tog bort kontot som hette " + listOfBankAccounts[choosenAccount].AccountName);
+                }
+               else if (listOfBankAccounts[choosenAccount].AccountBalance > 0)
+               {
+                    Console.WriteLine("Du kan inte ta bort ett konto som innehåller pengar.");
+               }
+            }
+
+            listOfBankAccounts.RemoveAt(choosenAccount);
+            
+           
+
+
+
+            Console.WriteLine("Tryck på enter för att återgå till menyn.");
+            Console.ReadKey();
+
         }
     }
 }
