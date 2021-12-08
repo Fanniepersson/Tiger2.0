@@ -8,32 +8,31 @@ namespace Project_Tiger_2._0
     {
         public void LoginMenu()
         {
-            List<Users> listOfUsers = new List<Users>();
-            listOfUsers.Add(new Users
+            List<Admin> listOfAdmins = new List<Admin>();
+            List<Customer> listOfCustomers = new List<Customer>();
+            listOfAdmins.Add(new Admin
             {
                 UserName = "test1",
                 PinCode = 1,
                 AdminPrivileges = true
             });
 
-            listOfUsers.Add(new Users
+            listOfCustomers.Add(new Customer
             {
                 UserName = "test2",
                 PinCode = 2,
-                AdminPrivileges = false
             });
-            listOfUsers[1].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1000));
-            listOfUsers[1].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 13456));
-            listOfUsers[1].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1359385));
+            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1000));
+            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 13456));
+            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1359385));
 
-            listOfUsers.Add(new Users
+            listOfCustomers.Add(new Customer
             {
                 UserName = "test3",
                 PinCode = 3,
-                AdminPrivileges = false
             });
-            listOfUsers[2].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 181518));
-            listOfUsers[2].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 472494));
+            listOfCustomers[1].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 181518));
+            listOfCustomers[1].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 472494));
 
             bool login = true;
             while (login)
@@ -41,18 +40,26 @@ namespace Project_Tiger_2._0
                 Console.Clear();
                 string answerUserName = " ";
                 bool answerUserNameWrong = true;
-                int loggedInUserIndex = 0;
+                int loggedInUserIndexAdmin = 0;
+                int loggedInUserIndexCustomer = 0;
                 while (answerUserNameWrong == true)
                 {
                     Console.WriteLine("Välkommen till banken! Mata in ditt användarnamn.");
                     answerUserName = Console.ReadLine();
 
-                    foreach (Users user in listOfUsers)
+                    foreach (Admin admin in listOfAdmins)
                     {
-                        if (answerUserName == user.UserName)
+                        if (answerUserName == admin.UserName)
                         {
-                            loggedInUserIndex = listOfUsers.IndexOf(user);
-                            //Console.WriteLine(loggedInUserIndex);
+                            loggedInUserIndexAdmin = listOfAdmins.IndexOf(admin);
+                            answerUserNameWrong = false;
+                        }
+                    }
+                    foreach (Customer customer in listOfCustomers)
+                    {
+                        if (answerUserName == customer.UserName)
+                        {
+                            loggedInUserIndexCustomer = listOfCustomers.IndexOf(customer);
                             answerUserNameWrong = false;
                         }
                     }
@@ -69,15 +76,27 @@ namespace Project_Tiger_2._0
                 {
                     Console.WriteLine("Var vänlig och ange din pinkod.");
                     int answerPinCode = Convert.ToInt32(Console.ReadLine());
+
                     for (int i = 0; i < 3; i++)
                     {
-                        if (answerPinCode == listOfUsers[loggedInUserIndex].PinCode && answerUserName == listOfUsers[loggedInUserIndex].UserName)
+                        if (answerPinCode == listOfAdmins[loggedInUserIndexAdmin].PinCode && answerUserName == listOfAdmins[loggedInUserIndexAdmin].UserName)
                         {
                             successfullyLoggedIn = true;
                             answerdRight = true;
                             break;
                         }
                     }
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (answerPinCode == listOfCustomers[loggedInUserIndexCustomer].PinCode && answerUserName == listOfCustomers[loggedInUserIndexCustomer].UserName)
+                        {
+                            successfullyLoggedIn = true;
+                            answerdRight = true;
+                            break;
+                        }
+                    }
+
                     loginTries++;
                     if (answerdRight == true)
                     {
@@ -92,30 +111,21 @@ namespace Project_Tiger_2._0
                     {
                         Console.WriteLine($"Du har {3 - loginTries} försök till på dig att mata in rätt pinkod.");
                     }
-
-
-
-
-
-
-
-
-
                 }
 
                 if (successfullyLoggedIn == true)
                 {
-                    if (listOfUsers[loggedInUserIndex].AdminPrivileges == true)
+                    if (listOfAdmins[loggedInUserIndexAdmin].UserName == answerUserName)
                     {
                         /*Console.WriteLine("Du är en admin!");*/ // Admin meny anrop här.
-                        MainMenuAdmin adminMenu = new MainMenuAdmin();
-                        adminMenu.MainMenuA(listOfUsers, loggedInUserIndex);
+                        Admin adminMenu = new Admin();
+                        adminMenu.MainMenuA(listOfAdmins, loggedInUserIndexAdmin);
                     }
-                    else
+                    else if (listOfCustomers[loggedInUserIndexCustomer].UserName == answerUserName)
                     {
                         /*Console.WriteLine("Du är en vanlig kund!");*/ // Kund meny anrop här.
-                        MainMenuCustomer customerMenu = new MainMenuCustomer();
-                        customerMenu.MainMenuC(listOfUsers, loggedInUserIndex);
+                        Customer customerMenu = new Customer();
+                        customerMenu.MainMenuC(listOfCustomers, loggedInUserIndexCustomer);
                     }
                 }
 
