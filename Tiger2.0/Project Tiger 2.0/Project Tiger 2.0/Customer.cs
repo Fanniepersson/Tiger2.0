@@ -6,6 +6,8 @@ namespace Project_Tiger_2._0
 {
     public class Customer : Users
     {
+        /*public List<Transaction> listOfallTransactions = new List<Transaction>();*/ //Nytt
+
         public List<BankAccounts> listOfBankAccounts = new List<BankAccounts>();
         public void MainMenuC(List<Customer> listOfCustomers, int loggedInUserIndex)
         {
@@ -18,7 +20,7 @@ namespace Project_Tiger_2._0
                 Console.WriteLine("2 --- Överföring av pengar mellan dina konton.");
                 Console.WriteLine("3 --- Överför dina pengar till en annan användare. (inte implementerad ännu)");
                 Console.WriteLine("4 --- Öppna upp ett nytt konto.");
-                Console.WriteLine("5 --- Avsluta ett existerande konto.");
+                Console.WriteLine("5 --- Avsluta ett existerande konto.");                
                 Console.WriteLine("6 --- Logga ut.");
 
                 string choice = Console.ReadLine();
@@ -48,7 +50,7 @@ namespace Project_Tiger_2._0
 
                     case "6":
                         logOut = true;
-                        break;
+                        break;                  
 
                     default:
                         Console.WriteLine("Felaktig inmatning. Tryck på enter för att återgå till menyn.");
@@ -204,10 +206,10 @@ namespace Project_Tiger_2._0
 
         public void RemoveExistingAccount()
         {
-            
+
             Console.Clear();
             int choosenAccount = 0;
-            bool loop = true;            
+            bool loop = true;
             while (loop == true)
             {
                 //Console.WriteLine("Välj det kontot du vill ta bort");
@@ -223,7 +225,7 @@ namespace Project_Tiger_2._0
                     Console.WriteLine();
                 }
                 Console.WriteLine("Välj det kontot du vill ta bort");
-                 choosenAccount = Convert.ToInt32(Console.ReadLine());
+                choosenAccount = Convert.ToInt32(Console.ReadLine());
 
 
 
@@ -231,23 +233,23 @@ namespace Project_Tiger_2._0
                 if (choosenAccount >= listOfBankAccounts.Count)
                 {
                     Console.WriteLine("Det kontot finns inte i systemet");
-                    
+
 
                 }
-                else if (choosenAccount < listOfBankAccounts.Count && listOfBankAccounts[choosenAccount].AccountBalance <= 0) 
+                else if (choosenAccount < listOfBankAccounts.Count && listOfBankAccounts[choosenAccount].AccountBalance <= 0)
                 {
                     loop = false;
                     Console.WriteLine("Du tog bort kontot som hette " + listOfBankAccounts[choosenAccount].AccountName);
                 }
-               else if (listOfBankAccounts[choosenAccount].AccountBalance > 0)
-               {
+                else if (listOfBankAccounts[choosenAccount].AccountBalance > 0)
+                {
                     Console.WriteLine("Du kan inte ta bort ett konto som innehåller pengar.");
-               }
+                }
             }
 
             listOfBankAccounts.RemoveAt(choosenAccount);
-            
-           
+
+
 
 
 
@@ -255,5 +257,7 @@ namespace Project_Tiger_2._0
             Console.ReadKey();
 
         }
+
+       
     }
 }

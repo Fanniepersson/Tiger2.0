@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0 (08-12)(2)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj": {}
+    "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0(10-12)\\Project Tiger 2.0 (10-12)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0 (08-12)(2)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj": {
+    "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0(10-12)\\Project Tiger 2.0 (10-12)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0 (08-12)(2)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
+        "projectUniqueName": "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0(10-12)\\Project Tiger 2.0 (10-12)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
         "projectName": "Project Tiger 2.0",
-        "projectPath": "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0 (08-12)(2)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
+        "projectPath": "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0(10-12)\\Project Tiger 2.0 (10-12)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\Project Tiger 2.0.csproj",
         "packagesPath": "C:\\Users\\Filip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0 (08-12)(2)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\obj\\",
+        "outputPath": "C:\\Users\\Filip\\source\\repos\\Tiger2.0\\Project Tiger 2.0(10-12)\\Project Tiger 2.0 (10-12)\\Tiger2.0\\Project Tiger 2.0\\Project Tiger 2.0\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Filip\\AppData\\Roaming\\NuGet\\NuGet.Config",

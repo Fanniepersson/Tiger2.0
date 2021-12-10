@@ -15,6 +15,7 @@ namespace Project_Tiger_2._0
                 Console.Clear();
                 Console.WriteLine("Välj ett alternativ utav följande:");
                 Console.WriteLine("1 --- Skapa en ny admin.");
+                Console.WriteLine("2 --- Skapa en ny user.");
                 Console.WriteLine("5 --- Logga ut.");
 
                 string AdminPick = Console.ReadLine();
@@ -25,7 +26,7 @@ namespace Project_Tiger_2._0
                         break;
 
                     case "2":
-
+                        listOfAdmins[loggedInUserIndex].CreateNewCustomer(listOfAdmins, listOfCustomers);
                         break;
 
                     case "3":
@@ -107,5 +108,90 @@ namespace Project_Tiger_2._0
             Console.WriteLine("Tryck på enter för att återgå till menyn.");
             Console.ReadKey();
         }
+
+        
+
+
+        public void CreateNewCustomer(List<Admin> listOfAdmins, List<Customer> listOfCustomers)
+        {
+            Console.Clear();
+            string nameForNewCustomer = " ";
+            bool userNameAlreadyExists = true;
+            while (userNameAlreadyExists == true)
+            {
+                Console.WriteLine("Vad ska den nya kunden ha för användarnamn?");
+                nameForNewCustomer = Console.ReadLine();
+
+                bool nameAlreadyTaken = false;
+
+                foreach (Admin admins in listOfAdmins)
+                {
+                    if (admins.UserName == nameForNewCustomer)
+                    {
+                        Console.WriteLine("Det namnet finns redan i systemet, välj ett annat!");
+                        nameAlreadyTaken = true;
+                    }
+                }
+                foreach (Customer customers in listOfCustomers)
+                {
+                    if (customers.UserName == nameForNewCustomer)
+                    {
+                        Console.WriteLine("Det namnet finns redan i systemet, välj ett annat!");
+                        nameAlreadyTaken = true;
+                    }
+                }
+                if (nameAlreadyTaken == false)
+                {
+                    userNameAlreadyExists = false;
+                }
+            }
+
+            bool pinCodeConsistsOfSixNumbers = false;
+            while (pinCodeConsistsOfSixNumbers == false)
+            {
+                Console.WriteLine("Välj nu en pinkod för den nya kunden.");
+                int pinCodeForNewCustomer = Convert.ToInt32(Console.ReadLine());
+                string stringPinCodeForNewCustomer = Convert.ToString(pinCodeForNewCustomer);
+
+                if (stringPinCodeForNewCustomer.Length == "123456".Length)
+                {
+                    listOfCustomers.Add(new Customer // Denna algoritm används för att skapa en ny administratör.
+                    {
+                        UserName = nameForNewCustomer,
+                        PinCode = pinCodeForNewCustomer,
+
+                    });
+                    pinCodeConsistsOfSixNumbers = true;
+                }
+                else
+                {
+                    Console.WriteLine("Din pinkod måste innehålla 6 stycken siffror!");
+                }
+            }
+
+            Console.WriteLine("Tryck på enter för att återgå till menyn.");
+            Console.ReadKey();
+        }
+
+
+
+
+
+
     }
+
+
+
 }
+
+
+            
+
+
+
+
+
+
+  
+
+

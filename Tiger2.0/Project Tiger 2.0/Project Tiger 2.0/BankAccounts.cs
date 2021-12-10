@@ -6,6 +6,8 @@ namespace Project_Tiger_2._0
 {
     public class BankAccounts
     {
+
+        public decimal Amount { get; }
         public string AccountName { get; set; }
         public decimal AccountBalance { get; set; }
         public BankAccounts(string accountName, decimal accountBalance)
@@ -13,5 +15,10 @@ namespace Project_Tiger_2._0
             this.AccountName = accountName;
             this.AccountBalance = accountBalance;
         }
+
+        //public Transaction (decimal amount) //Nytt
+        //{
+        //    this.Amount = amount;
+        //}
     }
 }
