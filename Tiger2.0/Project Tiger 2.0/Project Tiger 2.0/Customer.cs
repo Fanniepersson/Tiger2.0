@@ -18,9 +18,9 @@ namespace Project_Tiger_2._0
                 Console.WriteLine("Välj ett av valen nedan i menyn:");
                 Console.WriteLine("1 --- Se dina konton & saldo.");
                 Console.WriteLine("2 --- Överföring av pengar mellan dina konton.");
-                Console.WriteLine("3 --- Överför dina pengar till en annan användare. (inte implementerad ännu)");
+                Console.WriteLine("3 --- Överför dina pengar till en annan användare.");
                 Console.WriteLine("4 --- Öppna upp ett nytt konto.");
-                Console.WriteLine("5 --- Avsluta ett existerande konto.");                
+                Console.WriteLine("5 --- Avsluta ett existerande konto.");
                 Console.WriteLine("6 --- Logga ut.");
 
                 string choice = Console.ReadLine();
@@ -37,7 +37,7 @@ namespace Project_Tiger_2._0
                         break;
 
                     case "3":
-
+                        listOfCustomers[loggedInUserIndex].TransferMoneyToAnotherCustomer(listOfCustomers, loggedInUserIndex);
                         break;
 
                     case "4":
@@ -50,7 +50,7 @@ namespace Project_Tiger_2._0
 
                     case "6":
                         logOut = true;
-                        break;                  
+                        break;
 
                     default:
                         Console.WriteLine("Felaktig inmatning. Tryck på enter för att återgå till menyn.");
@@ -236,28 +236,128 @@ namespace Project_Tiger_2._0
 
 
                 }
-                else if (choosenAccount < listOfBankAccounts.Count && listOfBankAccounts[choosenAccount].AccountBalance <= 0)
-                {
-                    loop = false;
-                    Console.WriteLine("Du tog bort kontot som hette " + listOfBankAccounts[choosenAccount].AccountName);
-                }
                 else if (listOfBankAccounts[choosenAccount].AccountBalance > 0)
                 {
                     Console.WriteLine("Du kan inte ta bort ett konto som innehåller pengar.");
                 }
+                else if (listOfBankAccounts.Count < 2)
+                {
+                    Console.WriteLine("Du nåste ha minst ett konto i banken! Du kommer nu att återgå till menyn istället.");
+                    loop = false;
+                }
+                else if (choosenAccount < listOfBankAccounts.Count && listOfBankAccounts[choosenAccount].AccountBalance <= 0)
+                {
+                    Console.WriteLine("Du tog bort kontot som hette " + listOfBankAccounts[choosenAccount].AccountName);
+                    loop = false;
+                    listOfBankAccounts.RemoveAt(choosenAccount);
+                }
             }
-
-            listOfBankAccounts.RemoveAt(choosenAccount);
-
-
-
-
 
             Console.WriteLine("Tryck på enter för att återgå till menyn.");
             Console.ReadKey();
-
         }
 
-       
+        public void TransferMoneyToAnotherCustomer(List<Customer> listOfCustomers, int loggedInUserIndex)
+        {
+            Console.Clear();
+            bool loop = true;
+            int transferMoneyToThisCustomerIndex = 0;
+            while (loop == true)
+            {
+                Console.WriteLine("Till vilken användare vill du skicka pengar till? Mata in användarnamnet på den användare som du vill skicka pengar till.");
+                string transferToAnotherCustomer = Console.ReadLine();
+
+                foreach (Customer customer in listOfCustomers)
+                {
+                    if (transferToAnotherCustomer == customer.UserName)
+                    {
+                        if ((transferToAnotherCustomer == listOfCustomers[loggedInUserIndex].UserName))
+                        {
+                            Console.WriteLine("Du kan inte mata in ditt egna användarnamn! Försök igen!");
+                        }
+                        else
+                        {
+                            transferMoneyToThisCustomerIndex = listOfCustomers.IndexOf(customer);
+                            loop = false;
+                        }
+                    }
+                }
+                if (loop == true && transferToAnotherCustomer != listOfCustomers[loggedInUserIndex].UserName)
+                {
+                    Console.WriteLine("Det användarnamnet finns inte i systemet! Försök igen.");
+                }
+            }
+
+            Console.Clear();
+            loop = true;
+            int accountChoice = 0;
+            while (loop)
+            {
+                for (int i = 0; i < listOfBankAccounts.Count; i++)
+                {
+                    Console.Write(i + " --- ");
+                    Console.Write(listOfBankAccounts[i].AccountName);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountBalance);
+                    Console.WriteLine();
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine("Välj vilket konto du vill föra över pengar ifrån:");
+                try
+                {
+                    accountChoice = Convert.ToInt32(Console.ReadLine());
+                }
+
+                catch
+                {
+                    Console.WriteLine("Ogiltligt val");
+                }
+
+                if (accountChoice < listOfBankAccounts.Count)
+                {
+                    loop = false;
+                }
+                else if (accountChoice >= listOfBankAccounts.Count)
+                {
+                    Console.WriteLine("Kontot finns inte i systemet");
+                }
+            }
+
+            decimal amount = 0;
+            bool loop3 = true;
+            while (loop3)
+            {
+                Console.WriteLine("Vilken summa vill du föra över? : ");
+
+
+                try
+                {
+                    amount = Convert.ToDecimal(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Ogiltligt val");
+                }
+                if (amount <= 0)
+                {
+                    Console.WriteLine("Summan måste vara högre än 0");
+                }
+                else if (amount > listOfBankAccounts[accountChoice].AccountBalance)
+                {
+                    Console.WriteLine("Du har inte tillräckligt med pengar på konto för att överföra denna summan");
+                }
+                else if (amount > 0)
+                {
+                    loop3 = false;
+                }
+            }
+
+            listOfBankAccounts[accountChoice].AccountBalance = listOfBankAccounts[accountChoice].AccountBalance - amount;
+            listOfCustomers[transferMoneyToThisCustomerIndex].listOfBankAccounts[0].AccountBalance = listOfCustomers[transferMoneyToThisCustomerIndex].listOfBankAccounts[0].AccountBalance + amount;
+
+            Console.WriteLine("Tryck på enter för att återgå till menyn.");
+            Console.ReadKey();
+        }
     }
 }

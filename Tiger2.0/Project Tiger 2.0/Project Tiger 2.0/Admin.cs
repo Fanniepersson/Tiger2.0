@@ -15,7 +15,7 @@ namespace Project_Tiger_2._0
                 Console.Clear();
                 Console.WriteLine("Välj ett alternativ utav följande:");
                 Console.WriteLine("1 --- Skapa en ny admin.");
-                Console.WriteLine("2 --- Skapa en ny user.");
+                Console.WriteLine("2 --- Skapa en ny kund.");
                 Console.WriteLine("5 --- Logga ut.");
 
                 string AdminPick = Console.ReadLine();
@@ -109,7 +109,7 @@ namespace Project_Tiger_2._0
             Console.ReadKey();
         }
 
-        
+
 
 
         public void CreateNewCustomer(List<Admin> listOfAdmins, List<Customer> listOfCustomers)
@@ -155,12 +155,13 @@ namespace Project_Tiger_2._0
 
                 if (stringPinCodeForNewCustomer.Length == "123456".Length)
                 {
-                    listOfCustomers.Add(new Customer // Denna algoritm används för att skapa en ny administratör.
+                    listOfCustomers.Add(new Customer // Denna algoritm används för att skapa en ny kund.
                     {
                         UserName = nameForNewCustomer,
-                        PinCode = pinCodeForNewCustomer,
-
+                        PinCode = pinCodeForNewCustomer
                     });
+                    int indexOfLatestCustomer = listOfCustomers.Count - 1;
+                    listOfCustomers[indexOfLatestCustomer].listOfBankAccounts.Add(new BankAccounts("Konto 1", 0));
                     pinCodeConsistsOfSixNumbers = true;
                 }
                 else
@@ -173,25 +174,5 @@ namespace Project_Tiger_2._0
             Console.ReadKey();
         }
 
-
-
-
-
-
     }
-
-
-
 }
-
-
-            
-
-
-
-
-
-
-  
-
-

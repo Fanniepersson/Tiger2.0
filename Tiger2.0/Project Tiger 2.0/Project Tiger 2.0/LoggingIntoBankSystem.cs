@@ -23,16 +23,16 @@ namespace Project_Tiger_2._0
                 PinCode = 2,
             });
             listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1000));
-            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 13456));
-            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1359385));
+            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 2000));
+            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 3000));
 
             listOfCustomers.Add(new Customer
             {
                 UserName = "test3",
                 PinCode = 3,
             });
-            listOfCustomers[1].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 181518));
-            listOfCustomers[1].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 472494));
+            listOfCustomers[1].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 4000));
+            listOfCustomers[1].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 5000));
 
             bool login = true;
             while (login)
