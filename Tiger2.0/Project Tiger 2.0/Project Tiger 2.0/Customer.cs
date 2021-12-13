@@ -6,8 +6,9 @@ namespace Project_Tiger_2._0
 {
     public class Customer : Users
     {
-        /*public List<Transaction> listOfallTransactions = new List<Transaction>();*/ //Nytt
-
+        public List<Transaction> listOfYourAccountTransactions = new List<Transaction>();
+        public List<Transaction> listOfTransactionsToOtherCustomers = new List<Transaction>();
+        //public List<Transaction> listOfRemovedAccountsTransactions = new List<Transaction>();
         public List<BankAccounts> listOfBankAccounts = new List<BankAccounts>();
         public void MainMenuC(List<Customer> listOfCustomers, int loggedInUserIndex)
         {
@@ -21,7 +22,8 @@ namespace Project_Tiger_2._0
                 Console.WriteLine("3 --- Överför dina pengar till en annan användare.");
                 Console.WriteLine("4 --- Öppna upp ett nytt konto.");
                 Console.WriteLine("5 --- Avsluta ett existerande konto.");
-                Console.WriteLine("6 --- Logga ut.");
+                Console.WriteLine("6 --- Se din konto historik.");
+                Console.WriteLine("7 --- Logga ut.");
 
                 string choice = Console.ReadLine();
                 switch (choice)
@@ -49,6 +51,10 @@ namespace Project_Tiger_2._0
                         break;
 
                     case "6":
+                        listOfCustomers[loggedInUserIndex].PrintTransactionHistory();
+                        break;
+
+                    case "7":
                         logOut = true;
                         break;
 
@@ -188,6 +194,9 @@ namespace Project_Tiger_2._0
             listOfBankAccounts[accountChoice].AccountBalance = listOfBankAccounts[accountChoice].AccountBalance - amount;
             listOfBankAccounts[transferToAcount].AccountBalance = listOfBankAccounts[transferToAcount].AccountBalance + amount;
 
+            listOfYourAccountTransactions.Add(new Transaction(amount, DateTime.Now, listOfBankAccounts[accountChoice].AccountName, listOfBankAccounts[transferToAcount].AccountName));
+
+
             Console.WriteLine("Tryck på enter för att återgå till menyn.");
             Console.ReadKey();
         }
@@ -212,9 +221,7 @@ namespace Project_Tiger_2._0
             bool loop = true;
             while (loop == true)
             {
-                //Console.WriteLine("Välj det kontot du vill ta bort");
-                //int choosenAccount = Convert.ToInt32(Console.ReadLine());
-
+                
                 for (int i = 0; i < listOfBankAccounts.Count; i++)
                 {
                     Console.Write(i + " --- ");
@@ -242,7 +249,7 @@ namespace Project_Tiger_2._0
                 }
                 else if (listOfBankAccounts.Count < 2)
                 {
-                    Console.WriteLine("Du nåste ha minst ett konto i banken! Du kommer nu att återgå till menyn istället.");
+                    Console.WriteLine("Du måste ha minst ett konto i banken! Du kommer nu att återgå till menyn istället.");
                     loop = false;
                 }
                 else if (choosenAccount < listOfBankAccounts.Count && listOfBankAccounts[choosenAccount].AccountBalance <= 0)
@@ -252,6 +259,8 @@ namespace Project_Tiger_2._0
                     listOfBankAccounts.RemoveAt(choosenAccount);
                 }
             }
+
+           // listOfRemovedAccountsTransactions.Add(new Transaction(DateTime.Now, listOfBankAccounts[choosenAccount].AccountName));
 
             Console.WriteLine("Tryck på enter för att återgå till menyn.");
             Console.ReadKey();
@@ -356,8 +365,72 @@ namespace Project_Tiger_2._0
             listOfBankAccounts[accountChoice].AccountBalance = listOfBankAccounts[accountChoice].AccountBalance - amount;
             listOfCustomers[transferMoneyToThisCustomerIndex].listOfBankAccounts[0].AccountBalance = listOfCustomers[transferMoneyToThisCustomerIndex].listOfBankAccounts[0].AccountBalance + amount;
 
+            listOfTransactionsToOtherCustomers.Add(new Transaction(amount, DateTime.Now, listOfBankAccounts[accountChoice].AccountName, listOfCustomers[transferMoneyToThisCustomerIndex].UserName));
+
+
             Console.WriteLine("Tryck på enter för att återgå till menyn.");
             Console.ReadKey();
+
+
         }
+
+        public void PrintTransactionHistory()
+        {
+            bool loop = true;
+            while (loop)
+            {
+                Console.Clear();
+                Console.WriteLine("För att se transaktioner mellan dina konton tryck 1");
+                Console.WriteLine("För att se transaktioner från dina konton till andra användare tryck 2");
+                Console.WriteLine("För att gå tillbaka till huvudmenyn tryck 3");
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        for (int i = 0; i < listOfYourAccountTransactions.Count; i++)
+                        {
+                            
+                            Console.Write(listOfYourAccountTransactions[i].Date);
+                            Console.Write(" --- ");
+                            Console.Write($"Du har överfört: {listOfYourAccountTransactions[i].AmountTransaction} Från konto: {listOfYourAccountTransactions[i].AccountName}. Till konto: {listOfYourAccountTransactions[i].AccountName2} ");
+                            Console.WriteLine();
+                            Console.WriteLine();
+
+                        }
+                        Console.ReadKey();
+                        break;
+
+                    case "2":
+
+                        for (int i = 0; i < listOfTransactionsToOtherCustomers.Count; i++)
+                        {
+                            
+                            Console.Write(listOfTransactionsToOtherCustomers[i].Date);
+                            Console.Write(" --- ");
+                            Console.Write($"Du har överfört: {listOfTransactionsToOtherCustomers[i].AmountTransaction} Från konto: {listOfTransactionsToOtherCustomers[i].AccountName}. Till användare: {listOfTransactionsToOtherCustomers[i].AccountName2} ");
+                            Console.WriteLine();
+                            Console.WriteLine();
+                        }
+                        Console.ReadKey();
+                        break;
+
+                    case "3":
+                        loop = false;
+                        break;
+
+                    default:
+                        break;
+
+                }
+
+
+
+            }
+
+
+
+        }
+
     }
 }
