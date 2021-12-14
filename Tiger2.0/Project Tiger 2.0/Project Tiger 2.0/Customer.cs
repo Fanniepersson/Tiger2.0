@@ -8,7 +8,8 @@ namespace Project_Tiger_2._0
     {
         public List<Transaction> listOfYourAccountTransactions = new List<Transaction>();
         public List<Transaction> listOfTransactionsToOtherCustomers = new List<Transaction>();
-        //public List<Transaction> listOfRemovedAccountsTransactions = new List<Transaction>();
+        public List<Transaction> listOfRemovedAccounts = new List<Transaction>();
+        public List<Transaction> listOfAddedAccounts = new List<Transaction>();
         public List<BankAccounts> listOfBankAccounts = new List<BankAccounts>();
         public void MainMenuC(List<Customer> listOfCustomers, int loggedInUserIndex)
         {
@@ -207,6 +208,7 @@ namespace Project_Tiger_2._0
             Console.WriteLine("Vad ska ditt nya konto har för namn? ");
             string newAccountName = Console.ReadLine();
             listOfBankAccounts.Add(new BankAccounts(newAccountName, 0));
+            listOfAddedAccounts.Add(new Transaction(0, DateTime.Now, listOfBankAccounts[listOfBankAccounts.Count-1].AccountName, ""));
 
             Console.WriteLine("Tryck på enter för att återgå till menyn.");
             Console.ReadKey();
@@ -254,13 +256,14 @@ namespace Project_Tiger_2._0
                 }
                 else if (choosenAccount < listOfBankAccounts.Count && listOfBankAccounts[choosenAccount].AccountBalance <= 0)
                 {
+                    listOfRemovedAccounts.Add(new Transaction(0, DateTime.Now, listOfBankAccounts[choosenAccount].AccountName, ""));
                     Console.WriteLine("Du tog bort kontot som hette " + listOfBankAccounts[choosenAccount].AccountName);
                     loop = false;
                     listOfBankAccounts.RemoveAt(choosenAccount);
                 }
             }
 
-           // listOfRemovedAccountsTransactions.Add(new Transaction(DateTime.Now, listOfBankAccounts[choosenAccount].AccountName));
+            
 
             Console.WriteLine("Tryck på enter för att återgå till menyn.");
             Console.ReadKey();
@@ -382,12 +385,15 @@ namespace Project_Tiger_2._0
                 Console.Clear();
                 Console.WriteLine("För att se transaktioner mellan dina konton tryck 1");
                 Console.WriteLine("För att se transaktioner från dina konton till andra användare tryck 2");
-                Console.WriteLine("För att gå tillbaka till huvudmenyn tryck 3");
+                Console.WriteLine("För att se borttagna konton tryck 3");
+                Console.WriteLine("För att se tillagda konton tryck 4");
+                Console.WriteLine("För att gå tillbaka till huvudmenyn tryck 5");
                 string choice = Console.ReadLine();
 
                 switch (choice)
                 {
                     case "1":
+                        Console.Clear();
                         for (int i = 0; i < listOfYourAccountTransactions.Count; i++)
                         {
                             
@@ -398,11 +404,13 @@ namespace Project_Tiger_2._0
                             Console.WriteLine();
 
                         }
+                        Console.WriteLine();
+                        Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
                         Console.ReadKey();
                         break;
 
                     case "2":
-
+                        Console.Clear();
                         for (int i = 0; i < listOfTransactionsToOtherCustomers.Count; i++)
                         {
                             
@@ -412,10 +420,45 @@ namespace Project_Tiger_2._0
                             Console.WriteLine();
                             Console.WriteLine();
                         }
+                        Console.WriteLine();
+                        Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
                         Console.ReadKey();
                         break;
 
                     case "3":
+                        Console.Clear();
+                        for (int i = 0; i < listOfRemovedAccounts.Count; i++)
+                        {
+
+                            Console.Write(listOfRemovedAccounts[i].Date);
+                            Console.Write(" --- ");
+                            Console.Write($"Du har tagit bort konto: {listOfRemovedAccounts[i].AccountName}");
+                            Console.WriteLine();
+                            Console.WriteLine();
+
+                        }
+                        Console.WriteLine();
+                        Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+                        Console.ReadKey();
+                        break;
+
+                    case "4":
+                        Console.Clear();
+                        for (int i = 0; i < listOfAddedAccounts.Count; i++)
+                        {
+
+                            Console.Write(listOfAddedAccounts[i].Date);
+                            Console.Write(" --- ");
+                            Console.Write($"Du har lagt till konto: {listOfAddedAccounts[i].AccountName}");
+                            Console.WriteLine();
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine();
+                        Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+                        Console.ReadKey();
+                        break;
+
+                    case "5":
                         loop = false;
                         break;
 
