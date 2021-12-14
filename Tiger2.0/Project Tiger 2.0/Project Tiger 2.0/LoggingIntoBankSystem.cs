@@ -8,35 +8,36 @@ namespace Project_Tiger_2._0
     {
         public void LoginMenu()
         {
+
             List<Admin> listOfAdmins = new List<Admin>();
             List<Customer> listOfCustomers = new List<Customer>();
             listOfAdmins.Add(new Admin
             {
-                UserName = "test1",
+                UserName = "Tobias Landèn",
                 PinCode = 1,
                 AdminPrivileges = true
             });
 
-            listOfCustomers.Add(new Customer
+            listOfAdmins.Add(new Admin
             {
-                UserName = "test2",
+                UserName = "Anas Alhussain",
                 PinCode = 2,
+                AdminPrivileges = true
             });
-            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 1000,"SEK"));
-            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 2000,"SEK"));
-            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 3000,"SEK"));
 
             listOfCustomers.Add(new Customer
             {
                 UserName = "test3",
                 PinCode = 3,
             });
-            listOfCustomers[1].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 4000,"SEK"));
-            listOfCustomers[1].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 5000,"SEK"));
+            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 4000,"SEK"));
+            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 5000,"SEK"));
 
             bool login = true;
             while (login)
             {
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.Clear();
                 string answerUserName = " ";
                 bool answerUserNameWrong = true;
@@ -129,12 +130,15 @@ namespace Project_Tiger_2._0
                     }
                 }
 
+                
+
 
 
 
                 // Ge användaren möjligheten att stänga av systemet i slutet av denna loopen.
                 //login = false;
             }
+            
         }
     }
 }

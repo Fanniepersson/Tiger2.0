@@ -12,11 +12,15 @@ namespace Project_Tiger_2._0
             bool LogOut = false;
             while (LogOut == false)
             {
-                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Clear();              
+                Console.WriteLine($"Hej och välkommen {listOfAdmins[loggedInUserIndex].UserName}. Du är adminstratör hos Tiger International");
                 Console.WriteLine("Välj ett alternativ utav följande:");
                 Console.WriteLine("1 --- Skapa en ny admin.");
                 Console.WriteLine("2 --- Skapa en ny kund.");
-                Console.WriteLine("5 --- Logga ut.");
+                Console.WriteLine("3 --- Se lista på anställda.");
+                Console.WriteLine("4 --- Logga ut.");
 
                 string AdminPick = Console.ReadLine();
                 switch (AdminPick)
@@ -29,17 +33,18 @@ namespace Project_Tiger_2._0
                         listOfAdmins[loggedInUserIndex].CreateNewCustomer(listOfAdmins, listOfCustomers);
                         break;
 
-                    case "3":
-
+                    case "3":                       
+                        Console.WriteLine("Vi som jobbar på Tiger International: \nChief Executive Officer: Fannie, \nOperations Director: Daniel, \nEconomy Manager: Mattias, \nStrategist Of Finance: Filip");
+                        Console.WriteLine("");
+                        Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+                        Console.ReadKey();
                         break;
+                       
 
                     case "4":
-
-                        break;
-
-                    case "5":
                         LogOut = true;
                         break;
+                   
 
                     default:
                         Console.WriteLine("Felaktig inmatning. Tryck på enter för att återgå till menyn.");

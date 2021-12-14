@@ -11,19 +11,27 @@ namespace Project_Tiger_2._0
         public List<Transaction> listOfRemovedAccounts = new List<Transaction>();
         public List<Transaction> listOfAddedAccounts = new List<Transaction>();
         public List<BankAccounts> listOfBankAccounts = new List<BankAccounts>();
+
+        public const string Tiger = "🐯";
+
         public void MainMenuC(List<Customer> listOfCustomers, int loggedInUserIndex)
+
         {
             bool logOut = false;
             while (logOut == false)
             {
+                
                 Console.Clear();
+                               
+                Console.WriteLine($"Hej och välkommen {listOfCustomers[loggedInUserIndex].UserName}. Tack för att du väljer Tiger International");
+                Console.WriteLine("Hej!" + Customer.Tiger);
                 Console.WriteLine("Välj ett av valen nedan i menyn:");
                 Console.WriteLine("1 --- Se dina konton & saldo.");
                 Console.WriteLine("2 --- Överföring av pengar mellan dina konton.");
                 Console.WriteLine("3 --- Överför dina pengar till en annan användare.");
                 Console.WriteLine("4 --- Öppna upp ett nytt konto.");
                 Console.WriteLine("5 --- Avsluta ett existerande konto.");
-                Console.WriteLine("6 --- Se din konto historik.");
+                Console.WriteLine("6 --- Se din konto historik.");               
                 Console.WriteLine("7 --- Logga ut.");
 
                 string choice = Console.ReadLine();
