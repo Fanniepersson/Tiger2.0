@@ -76,6 +76,8 @@ namespace Project_Tiger_2._0
                 Console.Write(listOfBankAccounts[i].AccountName);
                 Console.Write(" --- ");
                 Console.Write(listOfBankAccounts[i].AccountBalance);
+                Console.Write(" --- ");
+                Console.Write(listOfBankAccounts[i].AccountCurrency);
                 Console.WriteLine();
                 Console.WriteLine();
             }
@@ -96,6 +98,8 @@ namespace Project_Tiger_2._0
                     Console.Write(listOfBankAccounts[i].AccountName);
                     Console.Write(" --- ");
                     Console.Write(listOfBankAccounts[i].AccountBalance);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountCurrency);
                     Console.WriteLine();
                     Console.WriteLine();
                 }
@@ -132,6 +136,8 @@ namespace Project_Tiger_2._0
                     Console.Write(listOfBankAccounts[i].AccountName);
                     Console.Write(" --- ");
                     Console.Write(listOfBankAccounts[i].AccountBalance);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountCurrency);
                     Console.WriteLine();
                     Console.WriteLine();
                 }
@@ -207,7 +213,34 @@ namespace Project_Tiger_2._0
             Console.Clear();
             Console.WriteLine("Vad ska ditt nya konto har för namn? ");
             string newAccountName = Console.ReadLine();
-            listOfBankAccounts.Add(new BankAccounts(newAccountName, 0));
+            Console.WriteLine("Vilken valuta vill du ha kontot : Mata in SEK , GBP , USD " );
+
+            string currency = " ";
+            bool loop = true;
+            while (loop == true)
+            {
+                string selectedCurrency = Console.ReadLine().ToUpper();
+                switch (selectedCurrency)
+                {
+                    case "SEK":
+                        currency = "SEK";
+                        loop = false;
+                        break;
+                    case "GBP":
+                        currency = "GPD";
+                        loop = false;
+                        break;
+                    case "USD":
+                        currency = "USD";
+                        loop = false;
+                        break;
+                    default: Console.WriteLine("Du har inte valt en giltigt valuta, försökt igen! ");
+                        break;
+                }
+
+            }
+            
+            listOfBankAccounts.Add(new BankAccounts(newAccountName, 0,currency));
             listOfAddedAccounts.Add(new Transaction(0, DateTime.Now, listOfBankAccounts[listOfBankAccounts.Count-1].AccountName, ""));
 
             Console.WriteLine("Tryck på enter för att återgå till menyn.");
@@ -230,6 +263,8 @@ namespace Project_Tiger_2._0
                     Console.Write(listOfBankAccounts[i].AccountName);
                     Console.Write(" --- ");
                     Console.Write(listOfBankAccounts[i].AccountBalance);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountCurrency);
                     Console.WriteLine();
                     Console.WriteLine();
                 }
@@ -311,6 +346,8 @@ namespace Project_Tiger_2._0
                     Console.Write(listOfBankAccounts[i].AccountName);
                     Console.Write(" --- ");
                     Console.Write(listOfBankAccounts[i].AccountBalance);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountCurrency);
                     Console.WriteLine();
                     Console.WriteLine();
                 }

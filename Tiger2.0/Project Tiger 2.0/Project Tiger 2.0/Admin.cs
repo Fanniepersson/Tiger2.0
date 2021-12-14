@@ -161,7 +161,7 @@ namespace Project_Tiger_2._0
                         PinCode = pinCodeForNewCustomer
                     });
                     int indexOfLatestCustomer = listOfCustomers.Count - 1;
-                    listOfCustomers[indexOfLatestCustomer].listOfBankAccounts.Add(new BankAccounts("Konto 1", 0));
+                    listOfCustomers[indexOfLatestCustomer].listOfBankAccounts.Add(new BankAccounts("Konto 1", 0,"SEK"));
                     pinCodeConsistsOfSixNumbers = true;
                 }
                 else

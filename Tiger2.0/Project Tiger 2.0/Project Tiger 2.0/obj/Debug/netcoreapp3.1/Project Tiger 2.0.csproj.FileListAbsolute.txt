@@ -110,3 +110,17 @@ C:\Users\Filip\source\repos\Tiger2.0\Project Tiger 2.0(10-12)\Project Tiger 2.0 
 C:\Users\Filip\source\repos\Tiger2.0\Project Tiger 2.0(10-12)\Project Tiger 2.0 (10-12)\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\obj\Debug\netcoreapp3.1\Project Tiger 2.0.dll
 C:\Users\Filip\source\repos\Tiger2.0\Project Tiger 2.0(10-12)\Project Tiger 2.0 (10-12)\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\obj\Debug\netcoreapp3.1\Project Tiger 2.0.pdb
 C:\Users\Filip\source\repos\Tiger2.0\Project Tiger 2.0(10-12)\Project Tiger 2.0 (10-12)\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\obj\Debug\netcoreapp3.1\Project Tiger 2.0.genruntimeconfig.cache
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\bin\Debug\netcoreapp3.1\Project Tiger 2.0.exe
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\bin\Debug\netcoreapp3.1\Project Tiger 2.0.deps.json
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\bin\Debug\netcoreapp3.1\Project Tiger 2.0.runtimeconfig.json
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\bin\Debug\netcoreapp3.1\Project Tiger 2.0.runtimeconfig.dev.json
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\bin\Debug\netcoreapp3.1\Project Tiger 2.0.dll
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\bin\Debug\netcoreapp3.1\Project Tiger 2.0.pdb
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\obj\Debug\netcoreapp3.1\Project Tiger 2.0.csproj.AssemblyReference.cache
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\obj\Debug\netcoreapp3.1\Project Tiger 2.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\obj\Debug\netcoreapp3.1\Project Tiger 2.0.AssemblyInfoInputs.cache
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\obj\Debug\netcoreapp3.1\Project Tiger 2.0.AssemblyInfo.cs
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\obj\Debug\netcoreapp3.1\Project Tiger 2.0.csproj.CoreCompileInputs.cache
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\obj\Debug\netcoreapp3.1\Project Tiger 2.0.dll
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\obj\Debug\netcoreapp3.1\Project Tiger 2.0.pdb
+C:\Users\matte\Source\Repos\Tiger2.0\Tiger2.0\Project Tiger 2.0\Project Tiger 2.0\obj\Debug\netcoreapp3.1\Project Tiger 2.0.genruntimeconfig.cache
