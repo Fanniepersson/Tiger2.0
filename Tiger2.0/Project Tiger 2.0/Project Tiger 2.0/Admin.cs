@@ -6,16 +6,19 @@ namespace Project_Tiger_2._0
 {
     public class Admin : Users
     {
-        public bool AdminPrivileges { get; set; } // Behövs inte. Dålig.
+        public bool AdminPrivileges { get; set; }
+        public const string Tiger = "🐯";
+        public const string Back = "🔙";
         public void MainMenuA(List<Admin> listOfAdmins, int loggedInUserIndex, List<Customer> listOfCustomers)
         {
             bool LogOut = false;
             while (LogOut == false)
             {
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.Clear();              
-                Console.WriteLine($"Hej och välkommen {listOfAdmins[loggedInUserIndex].UserName}. Du är adminstratör hos Tiger International");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.Clear();
+                Console.WriteLine($"Hej och välkommen {listOfAdmins[loggedInUserIndex].UserName}. Du är adminstratör hos Tiger International " + Admin.Tiger);
+                Console.WriteLine();
                 Console.WriteLine("Välj ett alternativ utav följande:");
                 Console.WriteLine("1 --- Skapa en ny admin.");
                 Console.WriteLine("2 --- Skapa en ny kund.");
@@ -33,10 +36,18 @@ namespace Project_Tiger_2._0
                         listOfAdmins[loggedInUserIndex].CreateNewCustomer(listOfAdmins, listOfCustomers);
                         break;
 
-                    case "3":                       
-                        Console.WriteLine("Vi som jobbar på Tiger International: \nChief Executive Officer: Fannie, \nOperations Director: Daniel, \nEconomy Manager: Mattias, \nStrategist Of Finance: Filip");
+                    case "3":
+                        Console.WriteLine();
+                        Console.WriteLine(Customer.Tiger);
+                        Console.WriteLine();
+                        Console.WriteLine("Vi som jobbar på Tiger International: \nChief Executive Officer: Fannie \nOperations Director: Daniel \nEconomy Manager: Mattias \nStrategist Of Finance: Filip ");
                         Console.WriteLine("");
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
                         Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+                        Console.WriteLine();
+                        Console.WriteLine(Customer.Back);
+
                         Console.ReadKey();
                         break;
                        
@@ -53,7 +64,8 @@ namespace Project_Tiger_2._0
                 }
             }
         }
-        public void CreateNewAdmin(List<Admin> listOfAdmins, List<Customer> listOfCustomers) // Denna metoden rör admins.
+
+        public void CreateNewAdmin(List<Admin> listOfAdmins, List<Customer> listOfCustomers) // Skapa nya admins
         {
             Console.Clear();
             string nameForNewAdmin = " ";
@@ -110,14 +122,16 @@ namespace Project_Tiger_2._0
                 }
             }
 
-            Console.WriteLine("Tryck på enter för att återgå till menyn.");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+            Console.WriteLine();
+            Console.WriteLine(Customer.Back);
+
             Console.ReadKey();
         }
 
-
-
-
-        public void CreateNewCustomer(List<Admin> listOfAdmins, List<Customer> listOfCustomers)
+        public void CreateNewCustomer(List<Admin> listOfAdmins, List<Customer> listOfCustomers) // Skapa nya kunder
         {
             Console.Clear();
             string nameForNewCustomer = " ";
@@ -175,7 +189,12 @@ namespace Project_Tiger_2._0
                 }
             }
 
-            Console.WriteLine("Tryck på enter för att återgå till menyn.");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+            Console.WriteLine();
+            Console.WriteLine(Customer.Back);
+
             Console.ReadKey();
         }
 

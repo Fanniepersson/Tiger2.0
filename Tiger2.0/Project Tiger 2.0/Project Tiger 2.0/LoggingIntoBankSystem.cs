@@ -27,7 +27,7 @@ namespace Project_Tiger_2._0
 
             listOfCustomers.Add(new Customer
             {
-                UserName = "test3",
+                UserName = "Shere Khan",
                 PinCode = 3,
             });
             listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 4000,"SEK"));
@@ -40,10 +40,10 @@ namespace Project_Tiger_2._0
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Clear();
                 string answerUserName = " ";
-                bool answerUserNameWrong = true;
+                bool loop = true;
                 int loggedInUserIndexAdmin = 0;
                 int loggedInUserIndexCustomer = 0;
-                while (answerUserNameWrong == true)
+                while (loop == true)
                 {
                     Console.WriteLine("Välkommen till banken! Mata in ditt användarnamn.");
                     answerUserName = Console.ReadLine();
@@ -53,7 +53,7 @@ namespace Project_Tiger_2._0
                         if (answerUserName == admin.UserName)
                         {
                             loggedInUserIndexAdmin = listOfAdmins.IndexOf(admin);
-                            answerUserNameWrong = false;
+                            loop = false;
                         }
                     }
                     foreach (Customer customer in listOfCustomers)
@@ -61,10 +61,10 @@ namespace Project_Tiger_2._0
                         if (answerUserName == customer.UserName)
                         {
                             loggedInUserIndexCustomer = listOfCustomers.IndexOf(customer);
-                            answerUserNameWrong = false;
+                            loop = false;
                         }
                     }
-                    if (answerUserNameWrong == true)
+                    if (loop == true)
                     {
                         Console.WriteLine("Det användarnamnet finns inte i systemet! Försök igen.");
                     }
@@ -118,25 +118,17 @@ namespace Project_Tiger_2._0
                 {
                     if (listOfAdmins[loggedInUserIndexAdmin].UserName == answerUserName)
                     {
-                        /*Console.WriteLine("Du är en admin!");*/ // Admin meny anrop här.
+                        // Admin meny anrop här.
                         Admin adminMenu = new Admin();
                         adminMenu.MainMenuA(listOfAdmins, loggedInUserIndexAdmin, listOfCustomers);
                     }
                     else if (listOfCustomers[loggedInUserIndexCustomer].UserName == answerUserName)
                     {
-                        /*Console.WriteLine("Du är en vanlig kund!");*/ // Kund meny anrop här.
+                        // Customer meny anrop här.
                         Customer customerMenu = new Customer();
                         customerMenu.MainMenuC(listOfCustomers, loggedInUserIndexCustomer);
                     }
                 }
-
-                
-
-
-
-
-                // Ge användaren möjligheten att stänga av systemet i slutet av denna loopen.
-                //login = false;
             }
             
         }

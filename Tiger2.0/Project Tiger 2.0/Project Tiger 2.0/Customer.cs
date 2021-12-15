@@ -13,6 +13,12 @@ namespace Project_Tiger_2._0
         public List<BankAccounts> listOfBankAccounts = new List<BankAccounts>();
 
         public const string Tiger = "🐯";
+        public const string Dollar = "💵";
+        public const string Money_With_Wings = "💸";
+        public const string No_Entry_Sign = "🚫";
+        public const string Clock830 = "🕣";
+        public const string Back = "🔙";
+
 
         public void MainMenuC(List<Customer> listOfCustomers, int loggedInUserIndex)
 
@@ -20,11 +26,15 @@ namespace Project_Tiger_2._0
             bool logOut = false;
             while (logOut == false)
             {
-                
+               
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.Clear();
-                               
-                Console.WriteLine($"Hej och välkommen {listOfCustomers[loggedInUserIndex].UserName}. Tack för att du väljer Tiger International");
-                Console.WriteLine("Hej!" + Customer.Tiger);
+
+
+
+                Console.WriteLine($"Hej och välkommen {listOfCustomers[loggedInUserIndex].UserName}. Tack för att du väljer Tiger International" + Customer.Tiger);
+                Console.WriteLine();
                 Console.WriteLine("Välj ett av valen nedan i menyn:");
                 Console.WriteLine("1 --- Se dina konton & saldo.");
                 Console.WriteLine("2 --- Överföring av pengar mellan dina konton.");
@@ -39,6 +49,10 @@ namespace Project_Tiger_2._0
                 {
 
                     case "1":
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Clear();
+
                         listOfCustomers[loggedInUserIndex].PrintBankAccounts();
                         break;
 
@@ -52,11 +66,11 @@ namespace Project_Tiger_2._0
                         break;
 
                     case "4":
-                        listOfCustomers[loggedInUserIndex].CreateNewAccount();
+                        listOfCustomers[loggedInUserIndex].CreateNewBankAccount();
                         break;
 
                     case "5":
-                        listOfCustomers[loggedInUserIndex].RemoveExistingAccount();
+                        listOfCustomers[loggedInUserIndex].RemoveExistingBankAccount();
                         break;
 
                     case "6":
@@ -74,7 +88,7 @@ namespace Project_Tiger_2._0
                 }
             }
         }
-        public void PrintBankAccounts() // Denna metoden rör vanliga kunder.
+        public void PrintBankAccounts() // Skriva ut alla konton och saldo
         {
             Console.Clear();
             Console.WriteLine("Dina konton och saldo");
@@ -83,17 +97,22 @@ namespace Project_Tiger_2._0
             {
                 Console.Write(listOfBankAccounts[i].AccountName);
                 Console.Write(" --- ");
-                Console.Write(listOfBankAccounts[i].AccountBalance);
+                Console.Write(Customer.Dollar + " "+ listOfBankAccounts[i].AccountBalance);
                 Console.Write(" --- ");
                 Console.Write(listOfBankAccounts[i].AccountCurrency);
                 Console.WriteLine();
                 Console.WriteLine();
             }
-            Console.WriteLine("Tryck på enter för att återgå till menyn.");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+            Console.WriteLine();
+            Console.WriteLine(Customer.Back);
             Console.ReadKey();
         }
 
-        public void TransferMoneyToAnotherAccount()
+
+        public void TransferMoneyToAnotherAccount() // Överföring av pengar
         {
             Console.Clear();
             bool loop = true;
@@ -210,13 +229,21 @@ namespace Project_Tiger_2._0
             listOfBankAccounts[transferToAcount].AccountBalance = listOfBankAccounts[transferToAcount].AccountBalance + amount;
 
             listOfYourAccountTransactions.Add(new Transaction(amount, DateTime.Now, listOfBankAccounts[accountChoice].AccountName, listOfBankAccounts[transferToAcount].AccountName));
-
-
-            Console.WriteLine("Tryck på enter för att återgå till menyn.");
+            Console.WriteLine();
+            Console.Write(Customer.Money_With_Wings);
+            Console.Write(Customer.Money_With_Wings);
+            Console.Write(Customer.Money_With_Wings);
+            Console.WriteLine();
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+            Console.WriteLine();
+            Console.WriteLine(Customer.Back);
+            
             Console.ReadKey();
         }
 
-        public void CreateNewAccount()
+        public void CreateNewBankAccount() // Skapa nytt bankkonto
         {
             Console.Clear();
             Console.WriteLine("Vad ska ditt nya konto har för namn? ");
@@ -251,12 +278,16 @@ namespace Project_Tiger_2._0
             listOfBankAccounts.Add(new BankAccounts(newAccountName, 0,currency));
             listOfAddedAccounts.Add(new Transaction(0, DateTime.Now, listOfBankAccounts[listOfBankAccounts.Count-1].AccountName, ""));
 
-            Console.WriteLine("Tryck på enter för att återgå till menyn.");
-            Console.ReadKey();
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+            Console.WriteLine();
+            Console.WriteLine(Customer.Back);
+
+
         }
 
-
-        public void RemoveExistingAccount()
+        public void RemoveExistingBankAccount() // Ta bort ett bankkonto
         {
 
             Console.Clear();
@@ -276,7 +307,7 @@ namespace Project_Tiger_2._0
                     Console.WriteLine();
                     Console.WriteLine();
                 }
-                Console.WriteLine("Välj det kontot du vill ta bort");
+                Console.WriteLine("Välj det kontot du vill ta bort" + Customer.No_Entry_Sign);
                 choosenAccount = Convert.ToInt32(Console.ReadLine());
 
 
@@ -306,13 +337,16 @@ namespace Project_Tiger_2._0
                 }
             }
 
-            
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+            Console.WriteLine();
+            Console.WriteLine(Customer.Back);
 
-            Console.WriteLine("Tryck på enter för att återgå till menyn.");
-            Console.ReadKey();
+
         }
 
-        public void TransferMoneyToAnotherCustomer(List<Customer> listOfCustomers, int loggedInUserIndex)
+        public void TransferMoneyToAnotherCustomer(List<Customer> listOfCustomers, int loggedInUserIndex) // Överföring av pengar till andra kunder
         {
             Console.Clear();
             bool loop = true;
@@ -415,23 +449,35 @@ namespace Project_Tiger_2._0
 
             listOfTransactionsToOtherCustomers.Add(new Transaction(amount, DateTime.Now, listOfBankAccounts[accountChoice].AccountName, listOfCustomers[transferMoneyToThisCustomerIndex].UserName));
 
+            Console.Write(Customer.Money_With_Wings);
+            Console.WriteLine();
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+            Console.WriteLine();
+            Console.WriteLine(Customer.Back);
 
-            Console.WriteLine("Tryck på enter för att återgå till menyn.");
-            Console.ReadKey();
+
 
 
         }
 
-        public void PrintTransactionHistory()
+        public void PrintTransactionHistory() // Skriva ut konto historik
         {
             bool loop = true;
             while (loop)
             {
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.Clear();
-                Console.WriteLine("För att se transaktioner mellan dina konton tryck 1");
-                Console.WriteLine("För att se transaktioner från dina konton till andra användare tryck 2");
-                Console.WriteLine("För att se borttagna konton tryck 3");
-                Console.WriteLine("För att se tillagda konton tryck 4");
+                Console.WriteLine("För att se transaktioner mellan dina konton tryck 1 " + Customer.Clock830);
+                Console.WriteLine();
+                Console.WriteLine("För att se transaktioner från dina konton till andra användare tryck 2 " + Customer.Clock830);
+                Console.WriteLine();
+                Console.WriteLine("För att se borttagna konton tryck 3 " + Customer.Clock830);
+                Console.WriteLine();
+                Console.WriteLine("För att se tillagda konton tryck 4 " + Customer.Clock830);
+                Console.WriteLine();
                 Console.WriteLine("För att gå tillbaka till huvudmenyn tryck 5");
                 string choice = Console.ReadLine();
 
@@ -449,9 +495,13 @@ namespace Project_Tiger_2._0
                             Console.WriteLine();
 
                         }
-                        Console.WriteLine();
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
                         Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+                        Console.WriteLine();
+                        Console.WriteLine(Customer.Back);
                         Console.ReadKey();
+
                         break;
 
                     case "2":
@@ -464,10 +514,17 @@ namespace Project_Tiger_2._0
                             Console.Write($"Du har överfört: {listOfTransactionsToOtherCustomers[i].AmountTransaction} Från konto: {listOfTransactionsToOtherCustomers[i].AccountName}. Till användare: {listOfTransactionsToOtherCustomers[i].AccountName2} ");
                             Console.WriteLine();
                             Console.WriteLine();
+
                         }
                         Console.WriteLine();
+
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
                         Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+                        Console.WriteLine();
+                        Console.WriteLine(Customer.Back);
                         Console.ReadKey();
+
                         break;
 
                     case "3":
@@ -482,9 +539,13 @@ namespace Project_Tiger_2._0
                             Console.WriteLine();
 
                         }
-                        Console.WriteLine();
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
                         Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+                        Console.WriteLine();
+                        Console.WriteLine(Customer.Back);
                         Console.ReadKey();
+
                         break;
 
                     case "4":
@@ -498,9 +559,13 @@ namespace Project_Tiger_2._0
                             Console.WriteLine();
                             Console.WriteLine();
                         }
-                        Console.WriteLine();
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
                         Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+                        Console.WriteLine();
+                        Console.WriteLine(Customer.Back);
                         Console.ReadKey();
+
                         break;
 
                     case "5":
@@ -508,6 +573,8 @@ namespace Project_Tiger_2._0
                         break;
 
                     default:
+                        Console.WriteLine("Felaktig inmatning. Tryck på enter för att återgå till menyn.");
+                        Console.ReadKey();
                         break;
 
                 }

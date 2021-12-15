@@ -16,10 +16,5 @@ namespace Project_Tiger_2._0
             this.AccountBalance = accountBalance;
             this.AccountCurrency = currency;
         }
-
-        //public Transaction (decimal amount) //Nytt
-        //{
-        //    this.Amount = amount;
-        //}
     }
 }
