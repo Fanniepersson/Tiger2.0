@@ -2,7 +2,7 @@
 -------------
 Introduction|
 -------------
-We choose to make this project oriented. This programe we have created is a internet bank in wich people can create new accounts and transfer money to each other, they can see their own bankaccounts and open new ones. They can also view their own bank records. The user can see their own bankaccounts and open new ones. The project is built so that customers and admins exsists.
+This programe we have created is a internet bank in wich people can create new accounts and transfer money to each other, they can see their own bankaccounts and open new ones. They can also view their own bank records. The user can see their own bankaccounts and open new ones. The project is built so that customers and admins exsists.
 
 -----------
 MOTIVATION|
