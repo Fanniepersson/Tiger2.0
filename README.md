@@ -2,40 +2,40 @@
 -------------
 Introduction|
 -------------
-This programe we have created is a internet bank in wich people can create new accounts and transfer money to each other, they can see their own bankaccounts and open new ones. They can also view their own bank records. The user can see their own bankaccounts and open new ones. The project is built so that customers and admins exsists.
+This program that we have created is an internet bank in wich users can create new accounts and transfer money to other users, they can see their own bank accounts and open new ones. They can also view their own bank transaction history. There are 2 different types of users in this bank system: administrators and customers.
 
 -----------
 MOTIVATION|
 -----------
-The motivation behind the creation is we wanted to build a stable and functioning internet bank.
+The motivation behind This project is that we wanted to build a stable and functioning internet bank system.
 
 -----------------
 Admin & Customer|
 -----------------
-When the programme is launched the user is directed to the LogInToBankSystem and LogInMenu, where the user is needed to type in their information inorder to proceed to the next menu.
+When the programme is launched the user is directed to the LogInToBankSystem Class and the LogInMenu Method, where the user is Prompted to type in their login information in order to proceed to the next menu.
 
-If logged in as a admin you have the options to create new admins and customers. You have the possibility to see who are employed at the bank. Once either a new customer or admin are created the user can log into the bank with the new logg in info they just created. 
+If logged in as an admin you have the options to create new admins and customers. You also have the possibility to see who are employed at the bank. Once either a new customer or admin have been created the user can log into the bank with the new log in details they have just created.
 
-If logged in as a customer the user will be logged into the customer menu, where the user will have 7 options on what to do in the menu. 1. Seeing your own bankaccount, 2.transfer money between accounts, 3.transfer money between users, 4.open a new account, 5.close down existing bank account, 6.see you account history, 7.logg out.
+If logged in as a customer the user will be directed to the customer menu, where the user will have 7 options on what to do in the menu. 1. Seeing your own bank accounts, 2. Transfer money between accounts, 3. Transfer money to other users, 4. Open up a new account, 5. Close down an existing bank account, 6. See your transaction history, 7. Logg out.
 
 ---------------
 Class Overview|
 ---------------
-The classes we have are the following:
+The classes that we have are the following:
 
-LoggIntoBankSystem, this class has a method called LoggInMenu, this method includes two list one for customer and one for admin. And these lists are lists of objects from customer and admin classes. 
+LoggIntoBankSystem, this class has a method called LoggInMenu, this method includes two lists, one for customers and one for admins. And these lists are lists of objects from customer and admin classes. 
 
 Transaction, this class has fields of account names, dates and amount transaction. We also have a constructor that holds our fields.
 
-User, this class is abstract and contains 2 fields, username and pincode. These fields are needed inorder to logg into to your bank.
+User, this class is abstract and contains 2 fields, username and pincode. These fields are needed inorder to logg into the bank.
 
-Bankaccounts, this class contains 3 fields, this class enables us to assign bankaccounts to every individuell customers. 
+Bankaccounts, this class contains 3 fields, this class enables us to assign bankaccounts to every individual customer.
 
-Customer, this class inherets from the user class, the class contains 5 fields that are lists, these lists are used in the list of customers that we created in the LoggInMenu method. The class also contains methods, PrintBankAccounts, TransferMoneyToAnotherAccount, TransferMoneyToAnotherCustomer, CreateNewAccount, RemovExistingAccount and PrintTransactionHistory.
+Customer, this class inherets from the user class, the class contains 5 fields that are lists, these lists are used in the list of customers that we created in the LoggInMenu method. The class also contains the following methods: PrintBankAccounts, TransferMoneyToAnotherAccount, TransferMoneyToAnotherCustomer, CreateNewAccount, RemovExistingAccount and PrintTransactionHistory.
 
-Admin, this inherets from user, see row 15 for similar explanation.
+Admin, this class inherets from user, see row 17 for a more detailed explanation.
 
-Program, we created a object of LoggIntoBankSystem class, then we made a method LoggIntoMenu method.
+Program, we created a object of LoggIntoBankSystem class, then we made a method call to the LoggIntoMenu method.
 
 
 ![imgpsh_mobile_save](https://user-images.githubusercontent.com/91311241/146205838-519c727d-1a33-483f-ace1-3f293ee519bd.jpg)  
@@ -62,12 +62,12 @@ Class User
 ----------------
 Working Details|
 ----------------
-On this page we disscused and planned, we devided the work between us and worked accourding to Kanban.
+On this page we disscused and planned, we divided the work between us and then proceeded to work according to the tenants of the Kanban paradigm.
 
-Heres a link to our trello where our plans for the project are.
+Here is a link to our trello where our Kanban board for the project is located.
 https://trello.com/b/jUvhPcy1/team-tiger
 
-Heres a link to our UML diagram where our flow chart are, planned the structure of the code.
+Here is a link to our UML diagram where our class diagram is located, we used it to plan the structure of the code.
 https://lucid.app/lucidchart/7525d290-ba21-425c-96cf-75671118eed3/edit?invitationId=inv_608cfaa3-7df2-4351-a21f-33f3520340b9
 
 
