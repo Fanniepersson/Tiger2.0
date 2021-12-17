@@ -70,5 +70,7 @@ https://trello.com/b/jUvhPcy1/team-tiger
 Here is a link to our UML diagram where our class diagram is located, we used it to plan the structure of the code.
 https://lucid.app/lucidchart/7525d290-ba21-425c-96cf-75671118eed3/edit?invitationId=inv_608cfaa3-7df2-4351-a21f-33f3520340b9
 
+This is an image of our UML Diagram:
+![UML Diagram Projekt Tiger](https://user-images.githubusercontent.com/91312416/146557480-f24d2d50-8baf-48f3-b220-9e9c94aeb5a5.png)
 
 
