@@ -12,7 +12,7 @@ The motivation behind This project is that we wanted to build a stable and funct
 -----------------
 Admin & Customer|
 -----------------
-When the programme is launched the user is directed to the LogInToBankSystem Class and the LogInMenu Method, where the user is Prompted to type in their login information in order to proceed to the next menu.
+When the program is launched the user is directed to the LogInToBankSystem Class and the LogInMenu Method, where the user is prompted to type in their login information in order to proceed to the next menu.
 
 If logged in as an admin you have the options to create new admins and customers. You also have the possibility to see who are employed at the bank. Once either a new customer or admin have been created the user can log into the bank with the new log in details they have just created.
 
