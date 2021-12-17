@@ -32,7 +32,6 @@ namespace Project_Tiger_2._0
                 Console.Clear();
 
 
-
                 Console.WriteLine($"Hej och välkommen {listOfCustomers[loggedInUserIndex].UserName}. Tack för att du väljer Tiger International" + Customer.Tiger);
                 Console.WriteLine();
                 Console.WriteLine("Välj ett av valen nedan i menyn:");
@@ -238,8 +237,7 @@ namespace Project_Tiger_2._0
             Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
             Console.WriteLine();
-            Console.WriteLine(Customer.Back);
-            
+            Console.WriteLine(Customer.Back); 
             Console.ReadKey();
         }
 
@@ -283,6 +281,7 @@ namespace Project_Tiger_2._0
             Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
             Console.WriteLine();
             Console.WriteLine(Customer.Back);
+            Console.ReadKey();
 
 
         }
@@ -342,7 +341,7 @@ namespace Project_Tiger_2._0
             Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
             Console.WriteLine();
             Console.WriteLine(Customer.Back);
-
+            Console.ReadKey();
 
         }
 
@@ -456,7 +455,7 @@ namespace Project_Tiger_2._0
             Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
             Console.WriteLine();
             Console.WriteLine(Customer.Back);
-
+            Console.ReadKey();
 
 
 

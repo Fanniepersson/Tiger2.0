@@ -37,14 +37,34 @@ namespace Project_Tiger_2._0
             while (login)
             {
                 Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.Clear();
                 string answerUserName = " ";
                 bool loop = true;
                 int loggedInUserIndexAdmin = 0;
                 int loggedInUserIndexCustomer = 0;
+
+
+                Console.WriteLine(@"
+
+                         __,,,,_
+          _ __..-;''`--/'/ /.',-`-.
+      (`/' ` |  \ \ \\ / / / / .-'/`,_
+     /'`\ \   |  \ | \| // // / -.,/_,'-,
+    /<7' ;  \ \  | ; ||/ /| | \/    |`-/,/-.,_,/')
+   /  _.-, `,-\,__|  _-| / \ \/|_/  |    '-/.;.\'
+   `-`  f/ ;      / __/ \__ `/ |__/ |
+        `-'      |  -| =|\_  \  |-' |
+              __/   /_..-' `  ),'  //
+             ((__.-'((___..-'' \__.'
+
+                                        ");
+
                 while (loop == true)
                 {
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    
                     Console.WriteLine("Välkommen till banken! Mata in ditt användarnamn.");
                     answerUserName = Console.ReadLine();
 
