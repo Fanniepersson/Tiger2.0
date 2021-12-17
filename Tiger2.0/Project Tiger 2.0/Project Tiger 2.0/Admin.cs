@@ -50,12 +50,12 @@ namespace Project_Tiger_2._0
 
                         Console.ReadKey();
                         break;
-                       
+
 
                     case "4":
                         LogOut = true;
                         break;
-                   
+
 
                     default:
                         Console.WriteLine("Felaktig inmatning. Tryck på enter för att återgå till menyn.");
@@ -69,8 +69,8 @@ namespace Project_Tiger_2._0
         {
             Console.Clear();
             string nameForNewAdmin = " ";
-            bool userNameAlreadyExists = true;
-            while (userNameAlreadyExists == true)
+            bool loop = true;
+            while (loop == true)
             {
                 Console.WriteLine("Vad ska den nya administratören ha för användarnamn?");
                 nameForNewAdmin = Console.ReadLine();
@@ -95,15 +95,25 @@ namespace Project_Tiger_2._0
                 }
                 if (nameAlreadyTaken == false)
                 {
-                    userNameAlreadyExists = false;
+                    loop = false;
                 }
             }
 
+            int pinCodeForNewAdmin = 0;
             bool pinCodeConsistsOfSixNumbers = false;
             while (pinCodeConsistsOfSixNumbers == false)
             {
                 Console.WriteLine("Välj nu en pinkod för den nya administratören.");
-                int pinCodeForNewAdmin = Convert.ToInt32(Console.ReadLine());
+
+                try
+                {
+                    pinCodeForNewAdmin = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                   
+                }
+
                 string stringPinCodeForNewAdmin = Convert.ToString(pinCodeForNewAdmin);
 
                 if (stringPinCodeForNewAdmin.Length == "123456".Length)
@@ -180,7 +190,7 @@ namespace Project_Tiger_2._0
                         PinCode = pinCodeForNewCustomer
                     });
                     int indexOfLatestCustomer = listOfCustomers.Count - 1;
-                    listOfCustomers[indexOfLatestCustomer].listOfBankAccounts.Add(new BankAccounts("Konto 1", 0,"SEK"));
+                    listOfCustomers[indexOfLatestCustomer].listOfBankAccounts.Add(new BankAccounts("Konto 1", 0, "SEK"));
                     pinCodeConsistsOfSixNumbers = true;
                 }
                 else

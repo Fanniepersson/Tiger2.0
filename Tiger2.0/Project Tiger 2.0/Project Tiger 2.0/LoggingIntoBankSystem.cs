@@ -13,7 +13,7 @@ namespace Project_Tiger_2._0
             List<Customer> listOfCustomers = new List<Customer>();
             listOfAdmins.Add(new Admin
             {
-                UserName = "Tobias Landèn",
+                UserName = "Tobias Landén",
                 PinCode = 1,
                 AdminPrivileges = true
             });
@@ -30,8 +30,8 @@ namespace Project_Tiger_2._0
                 UserName = "Shere Khan",
                 PinCode = 3,
             });
-            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 4000,"SEK"));
-            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 5000,"SEK"));
+            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Sparkonto", 4000, "SEK"));
+            listOfCustomers[0].listOfBankAccounts.Add(new BankAccounts("Lönekonto", 5000, "SEK"));
 
             bool login = true;
             while (login)
@@ -64,7 +64,7 @@ namespace Project_Tiger_2._0
                 {
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
-                    
+
                     Console.WriteLine("Välkommen till banken! Mata in ditt användarnamn.");
                     answerUserName = Console.ReadLine();
 
@@ -90,13 +90,22 @@ namespace Project_Tiger_2._0
                     }
                 }
 
+                int answerPinCode = 0;
                 bool successfullyLoggedIn = false;
                 int loginTries = 0;
                 bool answerdRight = false;
                 while (loginTries < 3)
                 {
                     Console.WriteLine("Var vänlig och ange din pinkod.");
-                    int answerPinCode = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        answerPinCode = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch
+                    {
+
+
+                    }
 
                     for (int i = 0; i < 3; i++)
                     {
@@ -150,7 +159,7 @@ namespace Project_Tiger_2._0
                     }
                 }
             }
-            
+
         }
     }
 }

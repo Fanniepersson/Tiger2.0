@@ -10,7 +10,11 @@ namespace Project_Tiger_2._0
         public List<Transaction> listOfTransactionsToOtherCustomers = new List<Transaction>();
         public List<Transaction> listOfRemovedAccounts = new List<Transaction>();
         public List<Transaction> listOfAddedAccounts = new List<Transaction>();
+        public List<Transaction> listOfAccountWithdrawals = new List<Transaction>();
+        public List<Transaction> listOfAccountDeposits = new List<Transaction>();
+
         public List<BankAccounts> listOfBankAccounts = new List<BankAccounts>();
+
 
         public const string Tiger = "🐯";
         public const string Dollar = "💵";
@@ -26,7 +30,7 @@ namespace Project_Tiger_2._0
             bool logOut = false;
             while (logOut == false)
             {
-               
+
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.Clear();
@@ -40,8 +44,10 @@ namespace Project_Tiger_2._0
                 Console.WriteLine("3 --- Överför dina pengar till en annan användare.");
                 Console.WriteLine("4 --- Öppna upp ett nytt konto.");
                 Console.WriteLine("5 --- Avsluta ett existerande konto.");
-                Console.WriteLine("6 --- Se din konto historik.");               
-                Console.WriteLine("7 --- Logga ut.");
+                Console.WriteLine("6 --- Se din konto historik.");
+                Console.WriteLine("7 --- Ta ut pengar från ett konto.");
+                Console.WriteLine("8 --- Sätt in pengar på ett konto.");
+                Console.WriteLine("9 --- Logga ut.");
 
                 string choice = Console.ReadLine();
                 switch (choice)
@@ -77,6 +83,14 @@ namespace Project_Tiger_2._0
                         break;
 
                     case "7":
+                        listOfCustomers[loggedInUserIndex].WithdrawMoneyFromAccount();
+                        break;
+
+                    case "8":
+                        listOfCustomers[loggedInUserIndex].DepositMoneyToAccount();
+                        break;
+
+                    case "9":
                         logOut = true;
                         break;
 
@@ -96,7 +110,7 @@ namespace Project_Tiger_2._0
             {
                 Console.Write(listOfBankAccounts[i].AccountName);
                 Console.Write(" --- ");
-                Console.Write(Customer.Dollar + " "+ listOfBankAccounts[i].AccountBalance);
+                Console.Write(Customer.Dollar + " " + listOfBankAccounts[i].AccountBalance);
                 Console.Write(" --- ");
                 Console.Write(listOfBankAccounts[i].AccountCurrency);
                 Console.WriteLine();
@@ -237,7 +251,7 @@ namespace Project_Tiger_2._0
             Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
             Console.WriteLine();
-            Console.WriteLine(Customer.Back); 
+            Console.WriteLine(Customer.Back);
             Console.ReadKey();
         }
 
@@ -246,7 +260,7 @@ namespace Project_Tiger_2._0
             Console.Clear();
             Console.WriteLine("Vad ska ditt nya konto har för namn? ");
             string newAccountName = Console.ReadLine();
-            Console.WriteLine("Vilken valuta vill du ha kontot : Mata in SEK , GBP , USD " );
+            Console.WriteLine("Vilken valuta vill du ha kontot : Mata in SEK , GBP , USD ");
 
             string currency = " ";
             bool loop = true;
@@ -267,14 +281,15 @@ namespace Project_Tiger_2._0
                         currency = "USD";
                         loop = false;
                         break;
-                    default: Console.WriteLine("Du har inte valt en giltigt valuta, försökt igen! ");
+                    default:
+                        Console.WriteLine("Du har inte valt en giltigt valuta, försökt igen! ");
                         break;
                 }
 
             }
-            
-            listOfBankAccounts.Add(new BankAccounts(newAccountName, 0,currency));
-            listOfAddedAccounts.Add(new Transaction(0, DateTime.Now, listOfBankAccounts[listOfBankAccounts.Count-1].AccountName, ""));
+
+            listOfBankAccounts.Add(new BankAccounts(newAccountName, 0, currency));
+            listOfAddedAccounts.Add(new Transaction(0, DateTime.Now, listOfBankAccounts[listOfBankAccounts.Count - 1].AccountName, ""));
 
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
@@ -294,7 +309,7 @@ namespace Project_Tiger_2._0
             bool loop = true;
             while (loop == true)
             {
-                
+
                 for (int i = 0; i < listOfBankAccounts.Count; i++)
                 {
                     Console.Write(i + " --- ");
@@ -307,10 +322,14 @@ namespace Project_Tiger_2._0
                     Console.WriteLine();
                 }
                 Console.WriteLine("Välj det kontot du vill ta bort" + Customer.No_Entry_Sign);
-                choosenAccount = Convert.ToInt32(Console.ReadLine());
-
-
-
+                try
+                {
+                    choosenAccount = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Det är bara tillåtet att mata in heltal!");
+                }
 
                 if (choosenAccount >= listOfBankAccounts.Count)
                 {
@@ -477,16 +496,21 @@ namespace Project_Tiger_2._0
                 Console.WriteLine();
                 Console.WriteLine("För att se tillagda konton tryck 4 " + Customer.Clock830);
                 Console.WriteLine();
-                Console.WriteLine("För att gå tillbaka till huvudmenyn tryck 5");
-                string choice = Console.ReadLine();
+                Console.WriteLine("För att se dina uttag tryck 5" + Customer.Clock830);
+                Console.WriteLine();
+                Console.WriteLine("För att se dina insättningar tryck 6" + Customer.Clock830);
+                Console.WriteLine();
+                Console.WriteLine("För att gå tillbaka till huvudmenyn tryck 7");
 
+
+                string choice = Console.ReadLine();
                 switch (choice)
                 {
                     case "1":
                         Console.Clear();
                         for (int i = 0; i < listOfYourAccountTransactions.Count; i++)
                         {
-                            
+
                             Console.Write(listOfYourAccountTransactions[i].Date);
                             Console.Write(" --- ");
                             Console.Write($"Du har överfört: {listOfYourAccountTransactions[i].AmountTransaction} Från konto: {listOfYourAccountTransactions[i].AccountName}. Till konto: {listOfYourAccountTransactions[i].AccountName2} ");
@@ -507,7 +531,7 @@ namespace Project_Tiger_2._0
                         Console.Clear();
                         for (int i = 0; i < listOfTransactionsToOtherCustomers.Count; i++)
                         {
-                            
+
                             Console.Write(listOfTransactionsToOtherCustomers[i].Date);
                             Console.Write(" --- ");
                             Console.Write($"Du har överfört: {listOfTransactionsToOtherCustomers[i].AmountTransaction} Från konto: {listOfTransactionsToOtherCustomers[i].AccountName}. Till användare: {listOfTransactionsToOtherCustomers[i].AccountName2} ");
@@ -568,6 +592,43 @@ namespace Project_Tiger_2._0
                         break;
 
                     case "5":
+                        Console.Clear();
+                        for (int i = 0; i < listOfAccountWithdrawals.Count; i++)
+                        {
+
+                            Console.Write(listOfAccountWithdrawals[i].Date);
+                            Console.Write(" --- ");
+                            Console.Write($"Från konto: {listOfAccountWithdrawals[i].AccountName} så tog du ut summan: {listOfAccountWithdrawals[i].AmountTransaction}.");
+                            Console.WriteLine();
+                            Console.WriteLine();
+                        }
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+                        Console.WriteLine();
+                        Console.WriteLine(Customer.Back);
+                        Console.ReadKey();
+                        break;
+
+                    case "6":
+                        Console.Clear();
+                        for (int i = 0; i < listOfAccountDeposits.Count; i++)
+                        {
+                            Console.Write(listOfAccountDeposits[i].Date);
+                            Console.Write(" --- ");
+                            Console.Write($"Till konto: {listOfAccountDeposits[i].AccountName} så satte du in summan: {listOfAccountDeposits[i].AmountTransaction}.");
+                            Console.WriteLine();
+                            Console.WriteLine();
+                        }
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+                        Console.WriteLine();
+                        Console.WriteLine(Customer.Back);
+                        Console.ReadKey();
+                        break;
+
+                    case "7":
                         loop = false;
                         break;
 
@@ -586,5 +647,194 @@ namespace Project_Tiger_2._0
 
         }
 
+        public void WithdrawMoneyFromAccount()
+        {
+            Console.Clear();
+            bool loop = true;
+            int accountChoice = 0;
+            while (loop)
+            {
+                for (int i = 0; i < listOfBankAccounts.Count; i++)
+                {
+                    Console.Write(i + " --- ");
+                    Console.Write(listOfBankAccounts[i].AccountName);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountBalance);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountCurrency);
+                    Console.WriteLine();
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine("Välj vilket konto du vill ta ut pengar ifrån:");
+                try
+                {
+                    accountChoice = Convert.ToInt32(Console.ReadLine());
+                }
+
+                catch
+                {
+                    Console.WriteLine("Ogiltligt val");
+                }
+
+                if (accountChoice < listOfBankAccounts.Count)
+                {
+                    loop = false;
+                }
+                else if (accountChoice >= listOfBankAccounts.Count)
+                {
+                    Console.WriteLine("Kontot finns inte i systemet");
+                }
+            }
+
+            decimal amount = 0;
+            bool loop3 = true;
+            while (loop3)
+            {
+                Console.WriteLine("Vilken summa vill du ta ut? : ");
+
+
+                try
+                {
+                    amount = Convert.ToDecimal(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Ogiltligt val");
+                }
+                if (amount <= 0)
+                {
+                    Console.WriteLine("Summan måste vara högre än 0");
+                }
+                else if (amount > listOfBankAccounts[accountChoice].AccountBalance)
+                {
+                    Console.WriteLine("Du har inte tillräckligt med pengar på konto för att ta ut denna summan.");
+                }
+                else if (amount > 0)
+                {
+                    loop3 = false;
+                }
+            }
+
+            listOfBankAccounts[accountChoice].AccountBalance = listOfBankAccounts[accountChoice].AccountBalance - amount;
+
+            Console.Clear();
+            Console.WriteLine($"Du tog ut summan - {amount} från ett konto som heter {listOfBankAccounts[accountChoice].AccountName}.");
+            Console.WriteLine();
+            Console.WriteLine("Nedan visas dina uppdaterade konton och saldon.");
+            Console.WriteLine();
+
+            for (int i = 0; i < listOfBankAccounts.Count; i++)
+            {
+                Console.Write(listOfBankAccounts[i].AccountName);
+                Console.Write(" --- ");
+                Console.Write(Customer.Dollar + " " + listOfBankAccounts[i].AccountBalance);
+                Console.Write(" --- ");
+                Console.Write(listOfBankAccounts[i].AccountCurrency);
+                Console.WriteLine();
+                Console.WriteLine();
+            }
+
+            listOfAccountWithdrawals.Add(new Transaction(amount, DateTime.Now, listOfBankAccounts[accountChoice].AccountName, " "));
+
+
+            Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+            Console.WriteLine();
+            Console.WriteLine(Customer.Back);
+            Console.ReadKey();
+        }
+
+        public void DepositMoneyToAccount()
+        {
+            Console.Clear();
+            bool loop = true;
+            int accountChoice = 0;
+            while (loop)
+            {
+                for (int i = 0; i < listOfBankAccounts.Count; i++)
+                {
+                    Console.Write(i + " --- ");
+                    Console.Write(listOfBankAccounts[i].AccountName);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountBalance);
+                    Console.Write(" --- ");
+                    Console.Write(listOfBankAccounts[i].AccountCurrency);
+                    Console.WriteLine();
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine("Välj vilket konto som du vill sätta in pengar på:");
+                try
+                {
+                    accountChoice = Convert.ToInt32(Console.ReadLine());
+                }
+
+                catch
+                {
+                    Console.WriteLine("Ogiltligt val");
+                }
+
+                if (accountChoice < listOfBankAccounts.Count)
+                {
+                    loop = false;
+                }
+                else if (accountChoice >= listOfBankAccounts.Count)
+                {
+                    Console.WriteLine("Kontot finns inte i systemet");
+                }
+            }
+
+            decimal amount = 0;
+            bool loop3 = true;
+            while (loop3)
+            {
+                Console.WriteLine("Vilken summa vill sätta in? : ");
+
+
+                try
+                {
+                    amount = Convert.ToDecimal(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Ogiltligt val");
+                }
+                if (amount <= 0)
+                {
+                    Console.WriteLine("Summan måste vara högre än 0");
+                }
+                else if (amount > 0)
+                {
+                    loop3 = false;
+                }
+            }
+
+            listOfBankAccounts[accountChoice].AccountBalance = listOfBankAccounts[accountChoice].AccountBalance + amount;
+
+            Console.Clear();
+            Console.WriteLine($"Du satte in summan + {amount} på ett konto som heter {listOfBankAccounts[accountChoice].AccountName}.");
+            Console.WriteLine();
+            Console.WriteLine("Nedan visas dina uppdaterade konton och saldon.");
+            Console.WriteLine();
+
+            for (int i = 0; i < listOfBankAccounts.Count; i++)
+            {
+                Console.Write(listOfBankAccounts[i].AccountName);
+                Console.Write(" --- ");
+                Console.Write(Customer.Dollar + " " + listOfBankAccounts[i].AccountBalance);
+                Console.Write(" --- ");
+                Console.Write(listOfBankAccounts[i].AccountCurrency);
+                Console.WriteLine();
+                Console.WriteLine();
+            }
+
+            listOfAccountDeposits.Add(new Transaction(amount, DateTime.Now, listOfBankAccounts[accountChoice].AccountName, " "));
+
+
+            Console.WriteLine("Tryck på enter för att gå tillbaka till menyn");
+            Console.WriteLine();
+            Console.WriteLine(Customer.Back);
+            Console.ReadKey();
+        }
     }
 }
